@@ -14,9 +14,14 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     try {
-      await emailjs.sendForm("service_z610csu", "template_e524tcl", e.target, {
-        publicKey: "J2WAQ4ntx5XYFn5HV",
-      });
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        e.target,
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }
+      );
       setFields({
         name: "",
         email: "",
@@ -31,7 +36,9 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
   return (
     <div
       ref={contactRef}
-      className={`scroll-mt-16 w-full flex sm:flex-row flex-col items-center lg:px-6 md:px-4 sm:px-8 p-4 my-4 ${showContact ? "" : "pt-4"}`}
+      className={`scroll-mt-16 w-full flex sm:flex-row flex-col items-center lg:px-6 md:px-4 sm:px-8 p-4 my-4 ${
+        showContact ? "" : "pt-4"
+      }`}
     >
       <div className="xl:w-[50%] lg:w-[50%] md:w-[75%] sm:w-[80%] w-full text-[var(--text-muted)] text-lg flex flex-col justify-center items-center">
         <div className="flex flex-col gap-2 lg:w-[50%] md:w-[75%] sm:w-full w-[90%] mb-8 md:text-base text-sm">
@@ -130,13 +137,15 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
                 setFields({ ...fields, [e.target.name]: e.target.value })
               }
               name="name"
+              id="name"
               type="text"
+              autoComplete="name"
               className="w-full outline-0 text-[var(--text-muted)] mx-2"
               placeholder="Your name here..."
             />
           </div>
           <div className="border-b border-[var(--text-muted)] py-2 flex">
-            <label htmlFor="name" className="text-[var(--text-muted)]">
+            <label htmlFor="email" className="text-[var(--text-muted)]">
               Email:{" "}
             </label>
             <input
@@ -146,7 +155,9 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
                 setFields({ ...fields, [e.target.name]: e.target.value })
               }
               name="email"
+              id="email"
               type="email"
+              autoComplete="email"
               className="w-full outline-0 text-[var(--text-muted)] mx-2"
               placeholder="Your email here..."
             />

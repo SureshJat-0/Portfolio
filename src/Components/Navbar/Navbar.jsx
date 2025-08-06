@@ -11,7 +11,13 @@ export default function Navbar({
   setShowSmallScreenNav,
 }) {
   const { homeRef, projectsRef, skillsRef, aboutRef, contactRef } = refs;
-
+  const navItems = [
+    ["Home", homeRef],
+    ["Projects", projectsRef],
+    ["Skills", skillsRef],
+    ["About", aboutRef],
+    ["Contact", contactRef],
+  ];
   return (
     <div className="fixed w-screen flex justify-between items-center p-4 bg-[var(--bg)] z-[5]">
       <div className="mx-2 font-extrabold text-2xl text-[var(--text)] flex justify-center items-center">
@@ -37,11 +43,9 @@ export default function Navbar({
       </div>
       <div className="">
         <ul className="list-none hidden md:flex mx-2 text-[var(--text)]">
-          <NavbarItems name={"Home"} currRef={homeRef} />
-          <NavbarItems name={"Projects"} currRef={projectsRef} />
-          <NavbarItems name={"Skills"} currRef={skillsRef} />
-          <NavbarItems name={"About"} currRef={aboutRef} />
-          <NavbarItems name={"Contact"} currRef={contactRef} />
+          {navItems.map((item, ind) => (
+            <NavbarItems name={item[0]} currRef={item[1]} key={ind} />
+          ))}
         </ul>
       </div>
       <div className="mx-4">

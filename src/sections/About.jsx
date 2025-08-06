@@ -4,7 +4,10 @@ import { motion } from "motion/react";
 
 export default function ({ setShowContact, aboutRef }) {
   return (
-    <div ref={aboutRef} className="scroll-mt-16 w-full mb-8 my-4 py-8 lg:px-12 md:px-4 sm:px-2">
+    <div
+      ref={aboutRef}
+      className="scroll-mt-16 w-full mb-8 my-4 py-8 lg:px-12 md:px-4 sm:px-2"
+    >
       <motion.h1
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -16,7 +19,11 @@ export default function ({ setShowContact, aboutRef }) {
       </motion.h1>
       <div className="flex sm:flex-row flex-col items-center w-full h-full">
         <div className="lg:w-[50%] sm:w-[40%] flex justify-center items-center flex-col">
-          <img src={MyPhoto} alt="profile-picture" className="profile-image sm:w-[75%] w-[60%]" />
+          <img
+            src={MyPhoto}
+            alt="profile-picture"
+            className="profile-image sm:w-[75%] w-[60%]"
+          />
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}

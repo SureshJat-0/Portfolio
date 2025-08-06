@@ -1,6 +1,6 @@
 export default function NavbarItems({ name, currRef, setShowSmallScreenNav }) {
   const handleClick = (ref) => {
-    if(setShowSmallScreenNav) {
+    if (setShowSmallScreenNav) {
       setShowSmallScreenNav(false);
     }
     ref.current.scrollIntoView({ behavior: "smooth" });

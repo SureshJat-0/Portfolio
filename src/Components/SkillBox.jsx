@@ -11,9 +11,7 @@ export default function SkillBox({ techStack }) {
   };
   return (
     <div className="my-4">
-      <h3 className="text-[var(--text-muted)]">
-        {Object.keys(techStack)[0]}
-      </h3>
+      <h3 className="text-[var(--text-muted)]">{Object.keys(techStack)[0]}</h3>
       <ul className="list-none text-[var(--text)] flex flex-wrap md:text-base text-sm">
         {techStack[Object.keys(techStack)[0]].map((tech, ind) => (
           <motion.li

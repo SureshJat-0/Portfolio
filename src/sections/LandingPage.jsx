@@ -3,6 +3,16 @@ import { motion } from "motion/react";
 import RectBg from "../Components/RectBg";
 
 export default function LandingPage({ homeRef, setShowContact }) {
+  // Rectangles of background : top, right, delay of animation
+  const rectsInfo = [
+    [55, 0, 1.3],
+    [55, 36, 1.1],
+    [73, 18, 1.2],
+    [91, 0, 1],
+    [73, 54, 1.5],
+    [91, 54, 1.4],
+    [109, 36, 1.6],
+  ];
   return (
     <div
       ref={homeRef}
@@ -44,13 +54,9 @@ export default function LandingPage({ homeRef, setShowContact }) {
         </motion.div>
       </div>
       {/* ractangles for background  */}
-      <RectBg top={55} right={0} delay={1.3} />
-      <RectBg top={55} right={36} delay={1.1} />
-      <RectBg top={73} right={18} delay={1.2} />
-      <RectBg top={91} right={0} delay={1} />
-      <RectBg top={73} right={54} delay={1.5} />
-      <RectBg top={91} right={54} delay={1.4} />
-      <RectBg top={109} right={36} delay={1.6} />
+      {rectsInfo.map((rect, ind) => (
+        <RectBg top={rect[0]} right={rect[1]} delay={rect[2]} key={ind} />
+      ))}
     </div>
   );
 }
