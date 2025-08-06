@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --bg: hsl(200, 23%, 8%);
+  --bg-light: hsl(200, 23%, 13%);
+  --bg-dark: hsl(200, 23%, 5%);
+  --text-green: hsl(127, 18%, 55%);
+  --text-green-dark: hsl(165, 65%, 20%);
+  --text-green-light: hsl(130, 44%, 85%);
+  --text: hsl(0, 0%, 90%);
+  --text-muted: hsl(0, 0%, 80%);
+  --btn-bg: hsl(126.21, 52.73%, 78.43%);
+  --rect: hsl(200, 20%, 13%);
+  --project-bg: hsl(195, 20%, 16%);
+  --btn-hover: hsl(127, 18%, 40%);
+  --browser-shade: hsl(195, 20%, 13%);
+}
