@@ -83,7 +83,6 @@ VITE_EMAILJS_PUBLIC_KEY=your_public_key
 npm run dev
 ```
 
-```md
 ## 📬 Contact
 
 Feel free to reach out!
@@ -99,4 +98,3 @@ If you have any feedback, ideas, or just want to connect — feel free to reach 
 I'm always open to collaboration, learning, and new opportunities. 🚀
 
 > Made with ❤️ by Suresh Jat
-```
