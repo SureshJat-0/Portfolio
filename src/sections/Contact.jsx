@@ -36,9 +36,7 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
   return (
     <div
       ref={contactRef}
-      className={`scroll-mt-16 w-full flex sm:flex-row flex-col items-center lg:px-6 md:px-4 sm:px-8 p-4 my-4 ${
-        showContact ? "" : "pt-4"
-      }`}
+      className="scroll-mt-16 w-full flex sm:flex-row flex-col items-center lg:px-6 md:px-4 sm:px-8 p-4 my-4 pt-4"
     >
       <div className="xl:w-[50%] lg:w-[50%] md:w-[75%] sm:w-[80%] w-full text-[var(--text-muted)] text-lg flex flex-col justify-center items-center">
         <div className="flex flex-col gap-2 lg:w-[50%] md:w-[75%] sm:w-full w-[90%] mb-8 md:text-base text-sm">

@@ -10,8 +10,8 @@ export default function NavbarSmallScreen({ setShowSmallScreenNav, refs }) {
     ["Contact", contactRef],
   ];
   return (
-    <div className={`fixed h-screen w-[40vw] bg-[var(--bg-light)] z-3 py-20`}>
-      <ul className="list-none text-[var(--text)] flex flex-col w-ful h-full [&_*]">
+    <div className={`fixed w-screen bg-[var(--bg)] z-3 py-20 shadow-2xl`}>
+      <ul className="list-none text-[var(--text)] flex flex-col w-ful h-full">
         {navItems.map((item, ind) => (
           <NavbarItems
             name={item[0]}

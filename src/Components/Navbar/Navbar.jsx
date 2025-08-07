@@ -19,7 +19,7 @@ export default function Navbar({
     ["Contact", contactRef],
   ];
   return (
-    <div className="fixed w-screen flex justify-between items-center p-4 bg-[var(--bg)] z-[5]">
+    <div className="fixed w-screen flex justify-between items-center px-4 py-2 md:py-4 bg-[var(--bg)] z-[5]">
       <div className="mx-2 font-extrabold text-2xl text-[var(--text)] flex justify-center items-center">
         {showSmallScreenNav ? (
           <AiOutlineClose

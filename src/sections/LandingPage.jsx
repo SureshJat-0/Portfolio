@@ -1,9 +1,10 @@
 import ContactButton from "../Components/Contact/ContactButton";
 import { motion } from "motion/react";
 import RectBg from "../Components/RectBg";
+import Typewriter from "typewriter-effect";
 
 export default function LandingPage({ homeRef, setShowContact }) {
-  // Rectangles of background : top, right, delay of animation
+  // Rectangles of background : top, right and delay of animation
   const rectsInfo = [
     [55, 0, 1.3],
     [55, 36, 1.1],
@@ -26,15 +27,15 @@ export default function LandingPage({ homeRef, setShowContact }) {
         >
           Hi, I'm Suresh Jat
         </motion.h1>
-        <motion.h1
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          MERN Stack Dev & DSA Enthusiast
-        </motion.h1>
+        <Typewriter
+          options={{
+            strings: ["MERN Stack Developer", "DSA Enthusiast"],
+            autoStart: true,
+            loop: true,
+          }}
+        />
       </div>
-      <div className="px-2 mb-12">
+      <div className="px-2 pe-8 mb-16">
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
