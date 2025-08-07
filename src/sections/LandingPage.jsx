@@ -2,6 +2,7 @@ import ContactButton from "../Components/Contact/ContactButton";
 import { motion } from "motion/react";
 import RectBg from "../Components/RectBg";
 import Typewriter from "typewriter-effect";
+import Robot_3D from "../Components/Robot_3D";
 
 export default function LandingPage({ homeRef, setShowContact }) {
   // Rectangles of background : top, right and delay of animation
@@ -54,6 +55,8 @@ export default function LandingPage({ homeRef, setShowContact }) {
           <ContactButton setShowContact={setShowContact} />
         </motion.div>
       </div>
+      {/* 3D interactive Robot Component */}
+      <Robot_3D />
       {/* ractangles for background  */}
       {rectsInfo.map((rect, ind) => (
         <RectBg top={rect[0]} right={rect[1]} delay={rect[2]} key={ind} />
