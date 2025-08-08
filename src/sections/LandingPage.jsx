@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import RectBg from "../Components/RectBg";
 import Typewriter from "typewriter-effect";
 import Robot_3D from "../Components/Robot_3D";
+import { useEffect, useState } from "react";
 
 export default function LandingPage({ homeRef, setShowContact }) {
   // Rectangles of background : top, right and delay of animation
@@ -15,6 +16,12 @@ export default function LandingPage({ homeRef, setShowContact }) {
     [91, 54, 1.4],
     [109, 36, 1.6],
   ];
+  const [show3D, setShow3D] = useState(false);
+  useEffect(() => {
+    const isTouchDevice = () =>
+      "ontouchstart" in window || navigator.maxTouchPoints > 0; // This checks whether device has multi touch or not
+    if (!isTouchDevice()) setShow3D(true);
+  }, []);
   return (
     <div
       ref={homeRef}
@@ -36,7 +43,7 @@ export default function LandingPage({ homeRef, setShowContact }) {
           }}
         />
       </div>
-      <div className="px-2 pe-8 mb-16">
+      <div className="px-2 pe-8 md:mb-16 mb-32">
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,6 +62,11 @@ export default function LandingPage({ homeRef, setShowContact }) {
           <ContactButton setShowContact={setShowContact} />
         </motion.div>
       </div>
+      {!show3D && (
+        <motion.div initial={{opacity: 0, y: 15}} animate={{opacity: 1, y: 0}} transition={{duration: 0.3, delay: 1}} className="absolute block md:hidden bottom-4 left-4 text-[var(--text-muted)] my-6 mx-4 md:text-base text-sm">
+          ⚠️ 3D Robot view available on desktop only
+        </motion.div>
+      )}
       {/* 3D interactive Robot Component */}
       <Robot_3D />
       {/* ractangles for background  */}

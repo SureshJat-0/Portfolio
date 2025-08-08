@@ -28,7 +28,7 @@ export default function ({ setShowContact, aboutRef }) {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
             className="text-2xl text-[var(--text-green-light)] my-4 py-2"
           >
             👋🏻 Hello
@@ -91,7 +91,7 @@ export default function ({ setShowContact, aboutRef }) {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: 0.7 }}
+            transition={{ duration: 0.4, delay: 0.6 }}
           >
             <ContactButton setShowContact={setShowContact} />
           </motion.div>
