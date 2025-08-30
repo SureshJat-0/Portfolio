@@ -43,16 +43,3 @@ body {
 .profile-image {
   filter: drop-shadow(4px 4px 8px black);
 }
-
-.project-card:hover {
-  background-image: linear-gradient(
-      to top right,
-      rgba(128, 0, 128, 0.15) 10%,
-      rgba(128, 0, 128, 0) 35%
-    ),
-    linear-gradient(
-      to bottom left,
-      rgba(0, 0, 255, 0.15) 10%,
-      rgba(0, 0, 255, 0) 35%
-    );
-}

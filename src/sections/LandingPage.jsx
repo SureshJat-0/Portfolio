@@ -62,13 +62,19 @@ export default function LandingPage({ homeRef, setShowContact }) {
           <ContactButton setShowContact={setShowContact} />
         </motion.div>
       </div>
-      {!show3D && (
-        <motion.div initial={{opacity: 0, y: 15}} animate={{opacity: 1, y: 0}} transition={{duration: 0.3, delay: 1}} className="absolute block md:hidden bottom-4 left-4 text-[var(--text-muted)] my-6 mx-4 md:text-base text-sm">
+      {/* 3D interactive Robot Component */}
+      {show3D ? (
+        <Robot_3D />
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 1 }}
+          className="absolute block md:hidden bottom-4 left-4 text-[var(--text-muted)] my-6 mx-4 md:text-base text-sm"
+        >
           ⚠️ 3D Robot view available on desktop only
         </motion.div>
       )}
-      {/* 3D interactive Robot Component */}
-      <Robot_3D />
       {/* ractangles for background  */}
       {rectsInfo.map((rect, ind) => (
         <RectBg top={rect[0]} right={rect[1]} delay={rect[2]} key={ind} />
