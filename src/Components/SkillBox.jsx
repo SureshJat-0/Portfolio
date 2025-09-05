@@ -20,7 +20,7 @@ export default function SkillBox({ techStack }) {
               duration: 0.3,
             }}
             key={ind}
-            className="text-[var(--text)] md:min-h-24 md:min-w-24 sm:min-h-12 sm:min-w-12 min-h-4 min-w-4 sm:m-2 sm:p-5 m-2 p-3 flex flex-col justify-center items-center gap-3 rounded-lg bg-[var(--bg-light)] shadow hover:shadow-xl md:text-base text-sm"
+            className="text-[var(--text)] md:min-h-24 md:min-w-24 sm:min-h-12 sm:min-w-12 min-h-2 min-w-2 sm:m-2 sm:p-5 m-2 p-3 flex flex-col justify-center items-center gap-3 rounded-lg bg-[var(--bg-light)] shadow hover:shadow-xl md:text-base text-sm"
           >
             {tech[0]}
             {TechIcon(tech[1])}
