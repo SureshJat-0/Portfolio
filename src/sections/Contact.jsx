@@ -36,11 +36,12 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
   return (
     <div
       ref={contactRef}
-      className="scroll-mt-16 w-full flex sm:flex-row flex-col items-center lg:px-6 md:px-4 sm:px-8 p-4 my-4 pt-4"
+      className="scroll-mt-16 w-full flex sm:flex-row flex-col items-center lg:px-6 md:px-4 sm:px-8 p-4 my-4"
     >
       <div className="xl:w-[50%] lg:w-[50%] md:w-[75%] sm:w-[80%] w-full text-[var(--text-muted)] text-lg flex flex-col justify-center items-center">
-        <div className="flex flex-col gap-2 lg:w-[50%] md:w-[75%] sm:w-full w-[90%] mb-8 md:text-base text-sm">
+        <div className="flex flex-col gap-1 md:gap-2 lg:w-[50%] md:w-[75%] sm:w-full w-[95%] mb-0 sm:mb-8 md:text-base text-sm pb-4">
           <motion.h3
+            className={`${showContact ? "hidden" : "block"} sm:block`}
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -65,6 +66,7 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
             sureshjatcode@gmail.com
           </motion.p>
           <motion.p
+            className={`${showContact ? "hidden" : "block"} sm:block`}
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -77,7 +79,7 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.4, delay: 0.6 }}
-            className="flex lg:gap-5 md:gap-3 gap-2 my-4 text-3xl"
+            className="flex lg:gap-5 md:gap-3 gap-4 my-1 md:my-4 text-3xl"
           >
             <a
               href="https://github.com/SureshJat-0"
@@ -109,14 +111,16 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.4, delay: 0.7 }}
-            className="w-[80%] text-sm"
+            className={`${
+              showContact ? "hidden" : "block"
+            } sm:block "w-[80%] text-sm`}
           >
             Feel free to reach out — I'm open to collaborations, freelance
             opportunities, or just a chat about tech!
           </motion.p>
         </div>
       </div>
-      <div className="lg:w-[50%] md:w-full sm:w-full w-[90%]">
+      <div className="lg:w-[50%] w-full sm:pt-4">
         <form
           onSubmit={handleSubmitForm}
           className="text-[var(--text)] flex flex-col xl:w-[60%] lg:w-[80%] md:w-[80%] rounded-2xl px-4 py-4 min-h-[60vh] bg-[var(--bg-light)] shadow-xl"

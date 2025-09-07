@@ -6,7 +6,7 @@ export default function ({ setShowContact, aboutRef }) {
   return (
     <div
       ref={aboutRef}
-      className="scroll-mt-16 w-full mb-8 my-4 py-8 lg:px-12 md:px-4 sm:px-2"
+      className="scroll-mt-16 w-full mb-12 my-4 py-8 lg:px-12 md:px-4 sm:px-2"
     >
       <h1 className="font-bold lg:text-5xl md:text-4xl text-4xl text-center text-[var(--text)] my-8">
         <span className="text-[var(--text-green)]">Who</span> I Am

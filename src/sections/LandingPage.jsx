@@ -5,6 +5,7 @@ import Typewriter from "typewriter-effect";
 import Robot_3D from "../Components/Robot_3D";
 import { useEffect, useState } from "react";
 
+
 export default function LandingPage({ homeRef, setShowContact }) {
   // Rectangles of background : top, right and delay of animation
   const rectsInfo = [
@@ -43,6 +44,9 @@ export default function LandingPage({ homeRef, setShowContact }) {
           }}
         />
       </div>
+      <div className="block md:hidden">
+          {/* <LandingVideoAnimation /> */}
+        </div>
       <div className="px-2 pe-8 md:mb-16 mb-32">
         <motion.p
           initial={{ opacity: 0, y: 15 }}

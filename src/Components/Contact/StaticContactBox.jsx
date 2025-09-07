@@ -16,14 +16,14 @@ export default function StaticContactBox({ showContact, setShowContact }) {
     <div
       className={`${
         showContact ? "flex" : "hidden"
-      } justify-center items-center fixed top-6 w-screen h-screen backdrop-blur-[2px]`}
+      } justify-center items-start sm:items-center pt-8 sm:pt-0 fixed top-0 w-screen h-screen backdrop-blur-[2px] z-5`}
       onClick={handleParantClick}
     >
       <div
-        className="md:h-[80%] md:w-[80%] h-[90%] w-[90%] bg-[var(--bg-dark)] rounded-2xl flex flex-col justify-start overflow-y-auto"
+        className="relative md:w-[80%] w-[90%] lg:py-12 bg-[var(--bg-dark)] rounded-2xl flex flex-col justify-start overflow-y-auto"
         onClick={handleChildClick}
       >
-        <div className="flex justify-end text-[var(--text-muted)]">
+        <div className="absolute right-0 top-0 text-[var(--text-muted)]">
           <AiOutlineClose
             onClick={handleCloseContactBox}
             className="text-2xl mt-4 mr-4 cursor-pointer"
