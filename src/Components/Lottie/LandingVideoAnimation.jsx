@@ -1,12 +1,13 @@
-// import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import Lottie from "lottie-react";
+import animationData from "./LottieVideo.json";
 
-// export default function LandingVideoAnimation() {
-//   return (
-//     <DotLottieReact
-//       className=''
-//       src="https://lottie.host/801a5341-4154-478f-a891-a9b8bc00eeda/Hfb3KT5cHa.lottie"
-//       loop
-//       autoplay
-//     />
-//   );
-// };
+export default function LandingVideoAnimation() {
+  return (
+    <Lottie
+      animationData={animationData}
+      loop={true}
+      style={{ width: 200 }}
+      className="ml-4"
+    />
+  );
+}
