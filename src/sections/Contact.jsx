@@ -164,7 +164,7 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
               placeholder="Your email here..."
             />
           </div>
-          <div className="border-b border-[var(--text-muted)] py-2 flex grow">
+          <div className="border-b border-[var(--text-muted)] py-2 flex flex-col grow">
             <textarea
               value={fields.message}
               required
@@ -173,7 +173,7 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
               }
               name="message"
               type="text"
-              className="w-full outline-0 text-[var(--text-muted)] h-full"
+              className="w-full outline-0 text-[var(--text-muted)] h-full grow"
               placeholder="Write your message..."
             />
           </div>
