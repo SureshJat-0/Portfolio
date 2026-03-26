@@ -1,10 +1,18 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
+import { FaPhone } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { motion } from "motion/react";
+import { toast } from "react-hot-toast";
 
-export default function Contact({ contactRef, showContact, setShowContact }) {
+export default function Contact({
+  contactRef,
+  showContactModal,
+  setShowContactModal,
+}) {
+  const [loading, setLoading] = useState(false);
   const [fields, setFields] = useState({
     name: "",
     email: "",
@@ -14,123 +22,164 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       await emailjs.sendForm(
         import.meta.env.VITE_EMAIL_SERVICE_ID,
         import.meta.env.VITE_EMAIL_TEMPLATE_ID,
         e.target,
         {
           publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-        }
+        },
       );
       setFields({
         name: "",
         email: "",
         message: "",
       });
-      setShowContact(false);
+      toast.success("Message sent");
     } catch (err) {
       console.log("Failed to send email", err);
+      toast.error("Error sending message");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div
       ref={contactRef}
-      className="scroll-mt-16 w-full flex sm:flex-row flex-col items-center lg:px-6 md:px-4 sm:px-8 p-4 my-4"
+      className="scroll-mt-16 w-full flex lg:flex-row flex-col items-center justify-center gap-12 lg:px-12 md:px-8 px-6 my-2 py-6 lg:py-12"
     >
-      <div className="xl:w-[50%] lg:w-[50%] md:w-[75%] sm:w-[80%] w-full text-[var(--text-muted)] text-lg flex flex-col justify-center items-center">
-        <div className="flex flex-col gap-1 md:gap-2 lg:w-[50%] md:w-[75%] sm:w-full w-[95%] mb-0 sm:mb-8 md:text-base text-sm pb-4">
-          <motion.h3
-            className={`${showContact ? "hidden" : "block"} sm:block`}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-          >
-            Contact
-          </motion.h3>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-          >
-            +91 7984760826
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-          >
-            sureshjatcode@gmail.com
-          </motion.p>
-          <motion.p
-            className={`${showContact ? "hidden" : "block"} sm:block`}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4, delay: 0.5 }}
-          >
-            Jaipur | Rajasthan
-          </motion.p>
+      {/* contact info */}
+      <div className="lg:w-1/2 flex flex-col justify-start">
+        <div className="space-y-2">
           <motion.div
+            className={`${showContactModal ? "hidden" : "block"} lg:block`}
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4, delay: 0.6 }}
-            className="flex lg:gap-5 md:gap-3 gap-4 my-1 md:my-4 text-3xl"
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <a
-              href="https://github.com/SureshJat-0"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SiGithub className="cursor-pointer" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/suresh-jat-340b46322/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SiLinkedin className="cursor-pointer" />
-            </a>
-            <a
-              href="https://x.com/SureshJat012"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <SiX className="cursor-pointer" />
-            </a>
-            <a href="mailto:sureshjatcode@gmail.com">
-              <MdEmail className="cursor-pointer" />
-            </a>
+            <h2 className="text-3xl md:text-5xl font-bold">
+              <span className="text-[var(--text)]">Let's </span>
+              <span className="text-[var(--text-green)]">Connect</span>
+            </h2>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4, delay: 0.7 }}
-            className={`${
-              showContact ? "hidden" : "block"
-            } sm:block "w-[80%] text-sm`}
+            transition={{ duration: 0.4, delay: 0.25 }}
+            className={`${showContactModal ? "hidden" : "block"} lg:block w-[80%] text-[var(--text)]`}
           >
             Feel free to reach out — I'm open to collaborations, freelance
             opportunities, or just a chat about tech!
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="space-y-3 mt-2 lg:mt-8"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 flex items-center justify-center">
+                <MdEmail className="text-2xl text-[var(--text-green)]" />
+              </div>
+              <div>
+                <p className="text-sm text-[var(--text-muted)]">Email</p>
+                <a
+                  href="mailto:sureshjatcode@gmail.com"
+                  className="text-[var(--text)] hover:text-[var(--text-green)] transition-colors"
+                >
+                  sureshjatcode@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 flex items-center justify-center">
+                <FaPhone className="text-2xl text-[var(--text-green)]" />
+              </div>
+              <div>
+                <p className="text-sm text-[var(--text-muted)]">Phone</p>
+                <p className="text-[var(--text)]">+91 7984760826</p>
+              </div>
+            </div>
+
+            <div
+              className={`${showContactModal ? "hidden" : "flex"} lg:flex items-center gap-4`}
+            >
+              <div className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 flex items-center justify-center">
+                <FaLocationDot className="text-2xl text-[var(--text-green)]" />
+              </div>
+              <div>
+                <p className="text-sm text-[var(--text-muted)]">Location</p>
+                <p className="text-[var(--text)]">Jaipur, Rajasthan</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.55 }}
+            viewport={{ once: true }}
+            className="flex gap-4 mt-6 lg:mt-8 pt-4 lg:pt-8 border-t border-[var(--text-green)]/8"
+          >
+            <a
+              href="https://github.com/SureshJat-0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 hover:bg-[var(--text-green)]/50 flex items-center justify-center text-2xl text-[var(--text-green)] hover:text-white transition-all duration-200"
+            >
+              <SiGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/suresh-jat-340b46322/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 hover:bg-[var(--text-green)]/50 flex items-center justify-center text-2xl text-[var(--text-green)] hover:text-white transition-all duration-200"
+            >
+              <SiLinkedin />
+            </a>
+            <a
+              href="https://x.com/SureshJat012"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 hover:bg-[var(--text-green)]/50 flex items-center justify-center text-2xl text-[var(--text-green)] hover:text-white transition-all duration-200"
+            >
+              <SiX />
+            </a>
+            <a
+              href="mailto:sureshjatcode@gmail.com"
+              className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 hover:bg-[var(--text-green)]/50 flex items-center justify-center text-2xl text-[var(--text-green)] hover:text-white transition-all duration-200"
+            >
+              <MdEmail />
+            </a>
+          </motion.div>
         </div>
       </div>
-      <div className="lg:w-[50%] w-full sm:pt-4">
+      {/* contact form */}
+      <div className="lg:w-1/2 w-full max-w-md">
         <form
-          onSubmit={handleSubmitForm}
-          className="text-[var(--text)] flex flex-col xl:w-[60%] lg:w-[80%] md:w-[80%] rounded-2xl px-4 py-4 min-h-[60vh] bg-[var(--bg-light)] shadow-xl"
+          onSubmit={(e) => handleSubmitForm(e)}
+          className="space-y-2 lg:space-y-6 p-4 lg:p-8 rounded-2xl bg-[var(--bg-light)] text-sm lg:text-base"
         >
-          <div className="my-2 text-center border-b border-[var(--text-muted)]">
-            <h1 className="text-xl font-bold mb-2">Let's talk</h1>
+          <div>
+            <h3 className="text-2xl font-bold text-white mb-6">
+              Send me a Message
+            </h3>
           </div>
-          <div className="border-b border-[var(--text-muted)] pb-2 flex">
-            <label htmlFor="name" className="text-[var(--text-muted)]">
-              Name:{" "}
+
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-[var(--text-muted)] mb-2"
+            >
+              Your Name
             </label>
             <input
               value={fields.name}
@@ -142,13 +191,17 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
               id="name"
               type="text"
               autoComplete="name"
-              className="w-full outline-0 text-[var(--text-muted)] mx-2"
-              placeholder="Your name here..."
+              placeholder="John Doe"
+              className="w-full px-4 py-3 rounded-lg bg-[var(--bg)] border border-[var(--text-green)]/15 text-[var(--text)] placeholder-[var(--text-muted)]/50 focus:outline-none focus:border-[var(--text-green)]/40 transition-colors duration-200"
             />
           </div>
-          <div className="border-b border-[var(--text-muted)] py-2 flex">
-            <label htmlFor="email" className="text-[var(--text-muted)]">
-              Email:{" "}
+
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-[var(--text-muted)] mb-2"
+            >
+              Your Email
             </label>
             <input
               value={fields.email}
@@ -160,11 +213,18 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
               id="email"
               type="email"
               autoComplete="email"
-              className="w-full outline-0 text-[var(--text-muted)] mx-2"
-              placeholder="Your email here..."
+              placeholder="john@example.com"
+              className="w-full px-4 py-3 rounded-lg bg-[var(--bg)] border border-[var(--text-green)]/15 text-[var(--text)] placeholder-[var(--text-muted)]/50 focus:outline-none focus:border-[var(--text-green)]/40 transition-colors duration-200"
             />
           </div>
-          <div className="border-b border-[var(--text-muted)] py-2 flex flex-col grow">
+
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-[var(--text-muted)] mb-2"
+            >
+              Message
+            </label>
             <textarea
               value={fields.message}
               required
@@ -172,17 +232,19 @@ export default function Contact({ contactRef, showContact, setShowContact }) {
                 setFields({ ...fields, [e.target.name]: e.target.value })
               }
               name="message"
-              type="text"
-              className="w-full outline-0 text-[var(--text-muted)] h-full grow"
-              placeholder="Write your message..."
+              id="message"
+              rows={5}
+              placeholder="Your message here..."
+              className="w-full px-4 py-3 rounded-lg bg-[var(--bg)] border border-[var(--text-green)]/15 text-[var(--text)] placeholder-[var(--text-muted)]/50 focus:outline-none focus:border-[var(--text-green)]/40 transition-colors duration-200 resize-none"
             />
           </div>
           <div className="flex justify-center items-center">
             <button
-              className="mt-2 rounded-2xl bg-[var(--text-green)] px-6 py-1 cursor-pointer text-black shadow-2xl"
+              disabled={loading}
+              className="w-full py-3 rounded-lg bg-[var(--btn-bg)] bg-gradient-to-br from-[var(--text-green)] from-50% to-[var(--text-green-dark)] border hover:border-[var(--text-green)] hover:shadow-[var(--bg-dark)] text-black/90 font-semibold hover:shadow-[var(--text-green)]/20 transition-all duration-200 cursor-pointer disabled:cursor-not-allowed"
               type="submit"
             >
-              Send
+              {loading ? <p>Sending...</p> : <p>Send Message</p>}
             </button>
           </div>
         </form>

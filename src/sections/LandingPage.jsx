@@ -6,7 +6,11 @@ import Robot_3D from "../Components/Robot_3D";
 import { useEffect, useState } from "react";
 import LandingVideoAnimation from "../Components/Lottie/LandingVideoAnimation";
 
-export default function LandingPage({ homeRef, setShowContact }) {
+export default function LandingPage({
+  homeRef,
+  projectsRef,
+  setShowContactModal,
+}) {
   // Rectangles of background : top, right and delay of animation
   const rectsInfo = [
     [55, 0, 1.3],
@@ -28,7 +32,7 @@ export default function LandingPage({ homeRef, setShowContact }) {
       ref={homeRef}
       className="scroll-mt-16 min-h-screen w-screen flex flex-col justify-between pt-32 pb-8 md:ps-20 ps-8"
     >
-      <div className="lg:text-4xl md:text-3xl text-2xl font-bold text-[var(--text-green)] leading-relaxed tracking-wider">
+      <div className="lg:text-4xl md:text-3xl text-2xl font-bold text-[var(--text-green-light)] leading-relaxed tracking-wider">
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,13 +40,15 @@ export default function LandingPage({ homeRef, setShowContact }) {
         >
           Hi, I'm Suresh Jat
         </motion.h1>
-        <Typewriter
-          options={{
-            strings: ["MERN Stack Developer", "DSA Enthusiast"],
-            autoStart: true,
-            loop: true,
-          }}
-        />
+        <span className="text-[var(--text-green)]">
+          <Typewriter
+            options={{
+              strings: ["MERN Stack Developer", "DSA Enthusiast"],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </span>
       </div>
       <div className="block md:hidden">
         <LandingVideoAnimation />
@@ -62,8 +68,17 @@ export default function LandingPage({ homeRef, setShowContact }) {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
+          className="flex gap-2"
         >
-          <ContactButton setShowContact={setShowContact} />
+          <ContactButton setShowContactModal={setShowContactModal} />
+          <button
+            onClick={() =>
+              projectsRef.current.scrollIntoView({ behavior: "smooth" })
+            }
+            className="bg-[var(--bg)] border border-[var(--text-green)] text-[var(--text-green)] hover:bg-[var(--text-green)] hover:text-black md:px-8 md:py-2 px-6 py-1 rounded tracking-wider cursor-pointer transition-all duration-400"
+          >
+            View My Work
+          </button>
         </motion.div>
       </div>
       {/* 3D interactive Robot Component */}

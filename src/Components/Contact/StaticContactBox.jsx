@@ -1,13 +1,16 @@
 import Contact from "../../sections/Contact";
 import { AiOutlineClose } from "react-icons/ai";
 
-export default function StaticContactBox({ showContact, setShowContact }) {
+export default function StaticContactBox({
+  showContactModal,
+  setShowContactModal,
+}) {
   const handleCloseContactBox = (e) => {
     e.preventDefault();
-    setShowContact(false);
+    setShowContactModal(false);
   };
   const handleParantClick = () => {
-    setShowContact(false);
+    setShowContactModal(false);
   };
   const handleChildClick = (e) => {
     e.stopPropagation(); // This prevents click from reaching the parent
@@ -15,12 +18,12 @@ export default function StaticContactBox({ showContact, setShowContact }) {
   return (
     <div
       className={`${
-        showContact ? "flex" : "hidden"
-      } justify-center items-start sm:items-center pt-8 sm:pt-0 fixed top-0 w-screen h-screen backdrop-blur-[2px] z-5`}
+        showContactModal ? "flex" : "hidden"
+      } justify-center items-start sm:items-center p-3 sm:p-0 fixed inset-0 w-screen h-screen backdrop-blur-[2px] z-5`}
       onClick={handleParantClick}
     >
       <div
-        className="relative md:w-[80%] w-[90%] lg:py-12 bg-[var(--bg-dark)] rounded-2xl flex flex-col justify-start overflow-y-auto"
+        className="relative md:w-[80%] w-full max-h-[calc(100dvh-1.5rem)] sm:max-h-[90vh] lg:py-12 bg-[var(--bg-dark)] rounded-2xl flex flex-col justify-start overflow-y-auto"
         onClick={handleChildClick}
       >
         <div className="absolute right-0 top-0 text-[var(--text-muted)]">
@@ -29,7 +32,10 @@ export default function StaticContactBox({ showContact, setShowContact }) {
             className="text-2xl mt-4 mr-4 cursor-pointer"
           />
         </div>
-        <Contact showContact={showContact} setShowContact={setShowContact} />
+        <Contact
+          showContactModal={showContactModal}
+          setShowContactModal={setShowContactModal}
+        />
       </div>
     </div>
   );

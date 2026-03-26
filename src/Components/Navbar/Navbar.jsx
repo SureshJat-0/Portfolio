@@ -3,9 +3,10 @@ import logo from "../../assets/logo.png";
 import NavbarItems from "./NavbarItems";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
+import { motion } from "motion/react";
 
 export default function Navbar({
-  setShowContact,
+  setShowContactModal,
   refs,
   showSmallScreenNav,
   setShowSmallScreenNav,
@@ -19,7 +20,12 @@ export default function Navbar({
     ["Contact", contactRef],
   ];
   return (
-    <div className="fixed w-screen flex justify-between items-center px-4 py-2 md:py-4 bg-[var(--bg)] z-[5]">
+    <motion.div
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      className="fixed w-screen flex justify-between items-center px-4 py-2 md:py-4 bg-[var(--bg)] z-[5]"
+    >
       <div className="mx-2 font-extrabold text-2xl text-[var(--text)] flex justify-center items-center">
         {showSmallScreenNav ? (
           <AiOutlineClose
@@ -49,8 +55,8 @@ export default function Navbar({
         </ul>
       </div>
       <div className="mx-4">
-        <ContactButton setShowContact={setShowContact} />
+        <ContactButton setShowContactModal={setShowContactModal} />
       </div>
-    </div>
+    </motion.div>
   );
 }

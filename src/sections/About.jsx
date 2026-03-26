@@ -1,8 +1,8 @@
 import MyPhoto from "../assets/MyPhoto.png";
 import ContactButton from "../Components/Contact/ContactButton";
-import { motion } from "motion/react";
+import "../index.css";
 
-export default function ({ setShowContact, aboutRef }) {
+export default function ({ setShowContactModal, aboutRef }) {
   return (
     <div
       ref={aboutRef}
@@ -11,15 +11,15 @@ export default function ({ setShowContact, aboutRef }) {
       <h1 className="font-bold lg:text-5xl md:text-4xl text-4xl text-center text-[var(--text)] my-8">
         <span className="text-[var(--text-green)]">Who</span> I Am
       </h1>
-      <div className="flex sm:flex-row flex-col items-center w-full h-full">
-        <div className="lg:w-[50%] sm:w-[40%] flex justify-center items-center flex-col">
+      <div className="flex sm:flex-row flex-col items-center justify-center gap-4 sm:gap-16">
+        <div className="scroll-animate inset-0 flex justify-center items-center flex-col">
           <img
             src={MyPhoto}
             alt="profile-picture"
-            className="profile-image w-[50%] bg-[var(--bg-light)] rounded-2xl shadow-2xl"
+            className="h-72 sm:h-96 bg-[var(--bg-light)] object-cover rounded-2xl shadow-[0_0_35px_10px_var(--bg-dark)]/50 border border-[var(--text-green)]/10"
           />
         </div>
-        <div className="lg:w-[45%] md:w-[70%] sm:w-[60%] w-[85%] text-[var(--text)] leading-relaxed lg:text-base text-sm px-4">
+        <div className="scroll-animate lg:w-[45%] md:w-[70%] sm:w-[60%] w-[85%] text-[var(--text)] leading-relaxed lg:text-base text-sm px-4">
           <p className="my-4">
             Hi, I'm Suresh Jat, a passionate full-stack web developer who loves
             turning ideas into real-world digital experiences. My journey began
@@ -38,7 +38,7 @@ export default function ({ setShowContact, aboutRef }) {
           </p>
 
           <div>
-            <ContactButton setShowContact={setShowContact} />
+            <ContactButton setShowContactModal={setShowContactModal} />
           </div>
         </div>
       </div>

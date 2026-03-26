@@ -10,9 +10,10 @@ import Projects from "./sections/Projects";
 import ScrollingProjects from "./sections/ScrollingProjects";
 import Skills from "./sections/Skills";
 import NavbarSmallScreen from "./Components/Navbar/NavbarSmallScreen";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [showContact, setShowContact] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   const [showSmallScreenNav, setShowSmallScreenNav] = useState(false);
   const homeRef = useRef(null);
   const projectsRef = useRef(null);
@@ -21,17 +22,28 @@ function App() {
   const contactRef = useRef(null);
 
   useEffect(() => {
-    if (showContact) {
+    if (showContactModal) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [showContact]);
+  }, [showContactModal]);
 
   return (
     <div className="flex flex-col">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            background: "var(--bg-light)",
+            color: "var(--text)",
+            border: "1px solid #374151",
+          },
+        }}
+      />
       <Navbar
-        setShowContact={setShowContact}
+        setShowContactModal={setShowContactModal}
         showSmallScreenNav={showSmallScreenNav}
         setShowSmallScreenNav={setShowSmallScreenNav}
         refs={{ homeRef, projectsRef, skillsRef, aboutRef, contactRef }}
@@ -42,21 +54,27 @@ function App() {
           refs={{ homeRef, projectsRef, skillsRef, aboutRef, contactRef }}
         />
       ) : null}
-      <LandingPage homeRef={homeRef} setShowContact={setShowContact} />
+      <LandingPage
+        homeRef={homeRef}
+        projectsRef={projectsRef}
+        setShowContactModal={setShowContactModal}
+      />
       <Projects projectsRef={projectsRef} />
       <ScrollingProjects scrollLeft={true} />
       <ScrollingProjects scrollLeft={false} />
       <Skills skillsRef={skillsRef} />
-      <About aboutRef={aboutRef} setShowContact={setShowContact} />
+      <About aboutRef={aboutRef} setShowContactModal={setShowContactModal} />
       <Contact
         contactRef={contactRef}
-        showContact={showContact}
-        setShowContact={setShowContact}
+        showContactModal={showContactModal}
+        setShowContactModal={setShowContactModal}
       />
-      <Footer />
+      <Footer
+        refs={{ homeRef, projectsRef, skillsRef, aboutRef, contactRef }}
+      />
       <StaticContactBox
-        showContact={showContact}
-        setShowContact={setShowContact}
+        showContactModal={showContactModal}
+        setShowContactModal={setShowContactModal}
       />
     </div>
   );

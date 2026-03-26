@@ -1,4 +1,5 @@
 import "../App.css";
+import AiCodeReviewer from "../assets/AiCodeReviewer.png";
 import ChatApp from "../assets/ChatApp.png";
 import LogicLoop from "../assets/LogicLoop.png";
 import PlacePort from "../assets/PlacePort.png";
@@ -15,6 +16,7 @@ import ExpandingCards from "../assets/ExpandingCards.png";
 
 export default function ScrollingProjects({ scrollLeft }) {
   const images = [
+    AiCodeReviewer,
     ChatApp,
     LogicLoop,
     PlacePort,
@@ -30,7 +32,7 @@ export default function ScrollingProjects({ scrollLeft }) {
     ExpandingCards,
   ];
   return (
-    <div className="scroll-mt-16 w-full overflow-hidden whitespace-nowrap my-4">
+    <div className="scroll-mt-16 w-full overflow-hidden whitespace-nowrap my-4 relative before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-16 before:z-10 before:pointer-events-none before:bg-gradient-to-r before:from-[var(--bg)] before:to-transparent after:content-[''] after:absolute after:top-0 after:right-0 after:h-full after:w-16 after:z-10 after:pointer-events-none after:bg-gradient-to-l after:from-[var(--bg)] after:to-transparent">
       <div
         className={`${
           scrollLeft ? "scrollLeft" : "scrollRight"

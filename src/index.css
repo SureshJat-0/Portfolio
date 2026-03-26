@@ -16,3 +16,29 @@
   --btn-hover: hsl(127, 18%, 40%);
   --browser-shade: hsl(195, 20%, 13%);
 }
+
+/* project animation */
+
+@keyframes animation-onScroll {
+  from {
+    opacity: 0;
+    transform: translateX(var(--translate-start));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.scroll-animate {
+  animation: animation-onScroll linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.scroll-animate:nth-child(odd) {
+  --translate-start: -100px;
+}
+.scroll-animate:nth-child(even) {
+  --translate-start: 100px;
+}

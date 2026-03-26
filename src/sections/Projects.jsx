@@ -4,10 +4,19 @@ import LogicLoop from "../assets/LogicLoop.png";
 import PlacePort from "../assets/PlacePort.png";
 import Twitter from "../assets/Twitter.png";
 import Amazon from "../assets/Amazon.png";
-import EarBeats from "../assets/EarBeats.png";
+import AiCodeReviewer from "../assets/AiCodeReviewer.png";
 
 export default function Projects({ projectsRef }) {
   const projects = [
+    {
+      title: "AI Code Reviewer (Full Stack - MERN)",
+      description:
+        "A smart tool that reviews code using AI, detects issues, and suggests improvements to enhance code quality and developer efficiency.",
+      techStack: ["React", "Node_js", "Express_js", "MongoDB"],
+      imageSource: AiCodeReviewer,
+      gitHubLink: [true, "https://github.com/SureshJat-0/AiCodeReviewer"],
+      liveLink: [true, "https://ai-code-reviewer-studio.vercel.app"],
+    },
     {
       title: "Chat App (Full Stack - MERN)",
       description:
@@ -62,18 +71,6 @@ export default function Projects({ projectsRef }) {
       gitHubLink: [
         true,
         "https://github.com/SureshJat-0/Front-End/tree/main/AmazonC",
-      ],
-      liveLink: [false, ""],
-    },
-    {
-      title: "Ear Beats",
-      description:
-        "A visually engaging and animated frontend website that showcases details about headsets, earphones, and audio gear. Built to highlight smooth animations, modern UI design.",
-      techStack: ["HTML", "CSS", "JavaScript"],
-      imageSource: EarBeats,
-      gitHubLink: [
-        true,
-        "https://github.com/SureshJat-0/projects-front-end/tree/main/EarBeats",
       ],
       liveLink: [false, ""],
     },
