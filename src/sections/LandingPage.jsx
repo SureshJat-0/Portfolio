@@ -28,11 +28,20 @@ export default function LandingPage({
     [109, 36, 1.6],
   ];
   const [show3D, setShow3D] = useState(false);
+
   useEffect(() => {
     const isTouchDevice = () =>
-      "ontouchstart" in window || navigator.maxTouchPoints > 0; // This checks whether device has multi touch or not
-    if (!isTouchDevice()) setShow3D(true);
+      "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if (!isTouchDevice()) {
+      const load3D = () => setShow3D(true);
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(load3D);
+      } else {
+        setTimeout(load3D, 2000);
+      }
+    }
   }, []);
+
   return (
     <div
       ref={homeRef}
@@ -101,7 +110,7 @@ export default function LandingPage({
       {show3D ? (
         <Suspense
           fallback={
-            <div className="absolute bottom-2 xl:right-[30vw] lg:right-[20vw] md:right-[5vw] sm:right-0 invisible md:visible z-[-2]">
+            <div className="absolute visible bottom-2 xl:right-[30vw] lg:right-[20vw] md:right-[5vw] sm:right-0 z-[-2]">
               <img
                 src={Robo3d}
                 alt="preview"
