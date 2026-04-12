@@ -33,12 +33,11 @@ export default function LandingPage({
     const isTouchDevice = () =>
       "ontouchstart" in window || navigator.maxTouchPoints > 0;
     if (!isTouchDevice()) {
-      const load3D = () => setShow3D(true);
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(load3D);
-      } else {
-        setTimeout(load3D, 2000);
-      }
+      const handleLoad = () => {
+        setTimeout(() => setShow3D(true), 3000); // increase delay
+      };
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
 

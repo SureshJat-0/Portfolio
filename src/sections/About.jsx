@@ -12,7 +12,7 @@ export default function ({ setShowContactModal, aboutRef }) {
         <span className="text-[var(--text-green)]">Who</span> I Am
       </h1>
       <div className="flex sm:flex-row flex-col items-center justify-center gap-4 sm:gap-16">
-        <div className="scroll-animate inset-0 flex justify-center items-center flex-col">
+        <div className="inset-0 flex justify-center items-center flex-col">
           <div style={{ aspectRatio: "3 / 4", width: "100%" }}>
             <img
               src={MyPhoto}
@@ -24,7 +24,7 @@ export default function ({ setShowContactModal, aboutRef }) {
             />
           </div>
         </div>
-        <div className="scroll-animate lg:w-[45%] md:w-[70%] sm:w-[60%] w-[85%] text-[var(--text)] leading-relaxed lg:text-base text-sm px-4">
+        <div className="lg:w-[45%] md:w-[70%] sm:w-[60%] w-[85%] text-[var(--text)] leading-relaxed lg:text-base text-sm px-4">
           <p className="my-4">
             Hi, I'm Suresh Jat, a passionate full-stack web developer who loves
             turning ideas into real-world digital experiences. My journey began
