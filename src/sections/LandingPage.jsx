@@ -1,10 +1,16 @@
-import ContactButton from "../Components/Contact/ContactButton";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { motion } from "motion/react";
+import ContactButton from "../Components/Contact/ContactButton";
 import RectBg from "../Components/RectBg";
 import Typewriter from "typewriter-effect";
-import Robot_3D from "../Components/Robot_3D";
-import { useEffect, useState } from "react";
-import LandingVideoAnimation from "../Components/Lottie/LandingVideoAnimation";
+import { FaCircleInfo } from "react-icons/fa6";
+import Robo3d from "../assets/Robo3dImage.webp";
+import LottieImage from "../assets/LottieImage.webp";
+
+const Robot_3D = lazy(() => import("../Components/Robot_3D"));
+const LandingVideoAnimation = lazy(
+  () => import("../Components/Lottie/LandingVideoAnimation"),
+);
 
 export default function LandingPage({
   homeRef,
@@ -51,7 +57,17 @@ export default function LandingPage({
         </span>
       </div>
       <div className="block md:hidden">
-        <LandingVideoAnimation />
+        <Suspense
+          fallback={
+            <img
+              src={LottieImage}
+              alt="preview"
+              style={{ width: "200px", height: "200px", objectFit: "cover" }}
+            />
+          }
+        >
+          <LandingVideoAnimation />
+        </Suspense>
       </div>
       <div className="px-2 pe-8 md:mb-16 mb-32">
         <motion.p
@@ -83,7 +99,19 @@ export default function LandingPage({
       </div>
       {/* 3D interactive Robot Component */}
       {show3D ? (
-        <Robot_3D />
+        <Suspense
+          fallback={
+            <div className="absolute bottom-2 xl:right-[30vw] lg:right-[20vw] md:right-[5vw] sm:right-0 invisible md:visible z-[-2]">
+              <img
+                src={Robo3d}
+                alt="preview"
+                style={{ width: "540px", height: "512px", objectFit: "cover" }}
+              />
+            </div>
+          }
+        >
+          <Robot_3D />
+        </Suspense>
       ) : (
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -91,7 +119,10 @@ export default function LandingPage({
           transition={{ duration: 0.3, delay: 1 }}
           className="absolute block md:hidden bottom-4 left-4 text-[var(--text-muted)] my-6 mx-4 md:text-base text-sm"
         >
-          ⚠️ 3D Robot view available on desktop only
+          <span className="flex space-x-2 items-center">
+            <FaCircleInfo />
+            <p>3D Robot view available on desktop only</p>
+          </span>
         </motion.div>
       )}
       {/* ractangles for background  */}

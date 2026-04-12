@@ -1,5 +1,5 @@
 import ContactButton from "../Contact/ContactButton";
-import logo from "../../assets/logo.png";
+import logo from "/logo.webp";
 import NavbarItems from "./NavbarItems";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";

@@ -1,10 +1,10 @@
 import Project from "../Components/Project";
-import ChatApp from "../assets/ChatApp.png";
-import LogicLoop from "../assets/LogicLoop.png";
-import PlacePort from "../assets/PlacePort.png";
-import Twitter from "../assets/Twitter.png";
-import Amazon from "../assets/Amazon.png";
-import AiCodeReviewer from "../assets/AiCodeReviewer.png";
+import ChatApp from "../assets/ChatApp.webp";
+import LogicLoop from "../assets/LogicLoop.webp";
+import PlacePort from "../assets/PlacePort.webp";
+import Twitter from "../assets/Twitter.webp";
+import Amazon from "../assets/Amazon.webp";
+import AiCodeReviewer from "../assets/AiCodeReviewer.webp";
 
 export default function Projects({ projectsRef }) {
   const projects = [

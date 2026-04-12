@@ -1,18 +1,18 @@
 import "../App.css";
-import AiCodeReviewer from "../assets/AiCodeReviewer.png";
-import ChatApp from "../assets/ChatApp.png";
-import LogicLoop from "../assets/LogicLoop.png";
-import PlacePort from "../assets/PlacePort.png";
-import Twitter from "../assets/Twitter.png";
-import Amazon from "../assets/Amazon.png";
-import WatchWeb from "../assets/WatchWeb.png";
-import EarBeats from "../assets/EarBeats.png";
-import RotatedNav from "../assets/RotatedNav.png";
-import CurrencyCoverter from "../assets/CurrencyConverter.png";
-import Calcy from "../assets/Calcy.png";
-import RockPaperScissor from "../assets/RockPaperScissor.png";
-import TicTacToe from "../assets/TicTacToe.png";
-import ExpandingCards from "../assets/ExpandingCards.png";
+import AiCodeReviewer from "../assets/AiCodeReviewer.webp";
+import ChatApp from "../assets/ChatApp.webp";
+import LogicLoop from "../assets/LogicLoop.webp";
+import PlacePort from "../assets/PlacePort.webp";
+import Twitter from "../assets/Twitter.webp";
+import Amazon from "../assets/Amazon.webp";
+import WatchWeb from "../assets/WatchWeb.webp";
+import EarBeats from "../assets/EarBeats.webp";
+import RotatedNav from "../assets/RotatedNav.webp";
+import CurrencyCoverter from "../assets/CurrencyConverter.webp";
+import Calcy from "../assets/Calcy.webp";
+import RockPaperScissor from "../assets/RockPaperScissor.webp";
+import TicTacToe from "../assets/TicTacToe.webp";
+import ExpandingCards from "../assets/ExpandingCards.webp";
 
 export default function ScrollingProjects({ scrollLeft }) {
   const images = [

@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   --bg: hsl(200, 23%, 8%);
   --bg-light: hsl(200, 23%, 13%);
   --bg-dark: hsl(200, 23%, 5%);

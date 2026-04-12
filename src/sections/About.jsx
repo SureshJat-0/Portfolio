@@ -1,4 +1,4 @@
-import MyPhoto from "../assets/MyPhoto.png";
+import MyPhoto from "../assets/MyPhoto.webp";
 import ContactButton from "../Components/Contact/ContactButton";
 import "../index.css";
 
@@ -13,11 +13,16 @@ export default function ({ setShowContactModal, aboutRef }) {
       </h1>
       <div className="flex sm:flex-row flex-col items-center justify-center gap-4 sm:gap-16">
         <div className="scroll-animate inset-0 flex justify-center items-center flex-col">
-          <img
-            src={MyPhoto}
-            alt="profile-picture"
-            className="h-72 sm:h-96 bg-[var(--bg-light)] object-cover rounded-2xl shadow-[0_0_35px_10px_var(--bg-dark)]/50 border border-[var(--text-green)]/10"
-          />
+          <div style={{ aspectRatio: "3 / 4", width: "100%" }}>
+            <img
+              src={MyPhoto}
+              alt="profile-picture"
+              loading="lazy"
+              style={{ filter: "blur(10px)" }}
+              onLoad={(e) => (e.target.style.filter = "blur(0px)")}
+              className="h-72 sm:h-96 bg-[var(--bg-light)] object-cover rounded-2xl shadow-[0_0_35px_10px_var(--bg-dark)]/50 border border-[var(--text-green)]/10"
+            />
+          </div>
         </div>
         <div className="scroll-animate lg:w-[45%] md:w-[70%] sm:w-[60%] w-[85%] text-[var(--text)] leading-relaxed lg:text-base text-sm px-4">
           <p className="my-4">

@@ -17,11 +17,20 @@ export default function Project({
           <div className="h-3 w-3 rounded-full bg-yellow-400"></div>
           <div className="h-3 w-3 rounded-full bg-green-400"></div>
         </div>
-        <img
-          src={imageSource}
-          alt="ChatApp"
-          className="rounded-bl-lg rounded-br-lg"
-        />
+        <div style={{ aspectRatio: "16 / 9", width: "100%" }}>
+          <img
+            src={imageSource}
+            alt="ChatApp"
+            loading="lazy"
+            style={{
+              filter: "blur(10px)",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+            onLoad={(e) => (e.target.style.filter = "blur(0px)")}
+          />
+        </div>
       </div>
       <div className="">
         <h1 className="lg:text-2xl md:text-xl text-xl text-[var(--text-green)] font-bold md:pt-12 sm:pt-4 pt-2">
