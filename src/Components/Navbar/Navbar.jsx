@@ -1,5 +1,5 @@
 import ContactButton from "../Contact/ContactButton";
-import logo from "/logo.webp";
+import favicon from "/favicon.ico";
 import NavbarItems from "./NavbarItems";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
@@ -45,7 +45,7 @@ export default function Navbar({
           />
         )}
 
-        <img src={logo} className="h-10" />
+        <img src={favicon} className="h-10" />
       </div>
       <div className="">
         <ul className="list-none hidden md:flex mx-2 text-[var(--text)]">
