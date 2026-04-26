@@ -1,4 +1,3 @@
-import "./App.css";
 import { useEffect, useRef, useState } from "react";
 import StaticContactBox from "./Components/Contact/StaticContactBox";
 import Navbar from "./Components/Navbar/Navbar";
@@ -15,6 +14,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   const [showContactModal, setShowContactModal] = useState(false);
   const [showSmallScreenNav, setShowSmallScreenNav] = useState(false);
+  const [activeItem, setActiveItem] = useState("Home");
   const homeRef = useRef(null);
   const projectsRef = useRef(null);
   const skillsRef = useRef(null);
@@ -28,6 +28,44 @@ function App() {
       document.body.style.overflow = "auto";
     }
   }, [showContactModal]);
+
+  useEffect(() => {
+    const sections = [
+      { name: "Home", ref: homeRef },
+      { name: "Projects", ref: projectsRef },
+      { name: "Skills", ref: skillsRef },
+      { name: "About", ref: aboutRef },
+      { name: "Contact", ref: contactRef },
+    ];
+
+    const updateActiveSection = () => {
+      const scrollMarker = window.scrollY + 140;
+      let currentSection = "Home";
+
+      sections.forEach((section) => {
+        const element = section.ref.current;
+        if (!element) return;
+
+        const sectionTop = element.offsetTop;
+        if (scrollMarker >= sectionTop) {
+          currentSection = section.name;
+        }
+      });
+
+      setActiveItem((prev) =>
+        prev === currentSection ? prev : currentSection,
+      );
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -46,11 +84,15 @@ function App() {
         setShowContactModal={setShowContactModal}
         showSmallScreenNav={showSmallScreenNav}
         setShowSmallScreenNav={setShowSmallScreenNav}
+        activeItem={activeItem}
+        setActiveItem={setActiveItem}
         refs={{ homeRef, projectsRef, skillsRef, aboutRef, contactRef }}
       />
       {showSmallScreenNav ? (
         <NavbarSmallScreen
           setShowSmallScreenNav={setShowSmallScreenNav}
+          activeItem={activeItem}
+          setActiveItem={setActiveItem}
           refs={{ homeRef, projectsRef, skillsRef, aboutRef, contactRef }}
         />
       ) : null}

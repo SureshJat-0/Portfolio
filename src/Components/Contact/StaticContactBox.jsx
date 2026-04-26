@@ -19,7 +19,7 @@ export default function StaticContactBox({
     <div
       className={`${
         showContactModal ? "flex" : "hidden"
-      } justify-center items-start sm:items-center p-3 sm:p-0 fixed inset-0 w-screen h-screen backdrop-blur-[2px] z-5`}
+      } justify-center items-start sm:items-center p-3 sm:p-0 fixed inset-0 w-screen h-screen backdrop-blur-[2px] z-[60]`}
       onClick={handleParantClick}
     >
       <div

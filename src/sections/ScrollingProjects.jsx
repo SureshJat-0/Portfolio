@@ -1,4 +1,3 @@
-import "../App.css";
 import AiCodeReviewer from "../assets/AiCodeReviewer.webp";
 import ChatApp from "../assets/ChatApp.webp";
 import LogicLoop from "../assets/LogicLoop.webp";
@@ -35,8 +34,10 @@ export default function ScrollingProjects({ scrollLeft }) {
     <div className="scroll-mt-16 w-full overflow-hidden whitespace-nowrap my-4 relative before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-16 before:z-10 before:pointer-events-none before:bg-gradient-to-r before:from-[var(--bg)] before:to-transparent after:content-[''] after:absolute after:top-0 after:right-0 after:h-full after:w-16 after:z-10 after:pointer-events-none after:bg-gradient-to-l after:from-[var(--bg)] after:to-transparent">
       <div
         className={`${
-          scrollLeft ? "scrollLeft" : "scrollRight"
-        } w-max flex gap-[1rem] group-hover:paused`}
+          scrollLeft
+            ? "[animation:scrollLeft_30s_linear_infinite]"
+            : "[animation:scrollRight_30s_linear_infinite]"
+        } w-max flex gap-[1rem] hover:[animation-play-state:paused]`}
       >
         {[...images, ...images].map((image, ind) => (
           <div className="shrink-0" key={ind}>

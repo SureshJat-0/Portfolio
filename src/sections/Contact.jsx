@@ -54,13 +54,12 @@ export default function Contact({
       <div className="lg:w-1/2 flex flex-col justify-start">
         <div className="space-y-2">
           <motion.div
-            className={`${showContactModal ? "hidden" : "block"} lg:block`}
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold">
+            <h2 className="text-3xl md:text-5xl font-bold my-4">
               <span className="text-[var(--text)]">Let's </span>
               <span className="text-[var(--text-green)]">Connect</span>
             </h2>

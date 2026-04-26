@@ -11,7 +11,10 @@ import {
   SiGit,
   SiGithub,
   SiFigma,
+  SiMongoose,
+  SiDocker,
 } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 
 export const iconMap = {
   SiReact: SiReact,
@@ -26,4 +29,7 @@ export const iconMap = {
   SiGit: SiGit,
   SiGithub: SiGithub,
   SiFigma: SiFigma,
+  SiMongoose: SiMongoose,
+  SiDocker: SiDocker,
+  SiVisualstudiocode: VscVscode,
 };

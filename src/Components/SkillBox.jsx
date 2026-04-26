@@ -1,4 +1,3 @@
-import "../App.css";
 import { iconMap } from "./Icons";
 import { motion } from "motion/react";
 

@@ -23,7 +23,20 @@
   --browser-shade: hsl(195, 20%, 13%);
 }
 
-/* project animation */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#root {
+  min-width: 100%;
+  min-height: 100%;
+}
 
 @keyframes animation-onScroll {
   from {
@@ -36,15 +49,46 @@
   }
 }
 
-.scroll-animate {
-  animation: animation-onScroll linear;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
+@keyframes scrollLeft {
+  0% {
+    transform: translate(0%);
+  }
+
+  100% {
+    transform: translate(calc(-50% - 0.5rem));
+  }
 }
 
-.scroll-animate:nth-child(odd) {
-  --translate-start: -100px;
+@keyframes scrollRight {
+  0% {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+
+  100% {
+    transform: translate(0%);
+  }
 }
-.scroll-animate:nth-child(even) {
-  --translate-start: 100px;
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+@keyframes ringShift {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }

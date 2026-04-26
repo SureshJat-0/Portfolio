@@ -50,30 +50,6 @@ export default function Projects({ projectsRef }) {
       ],
       liveLink: [false, ""],
     },
-    {
-      title: "Logic Loop ( Full Stack - MERN )",
-      description:
-        "A full-stack web app with user authentication, game-playing features, and persistent game history storage using a MongoDB database.",
-      techStack: ["React", "Node_js", "Express_js", "MongoDB"],
-      imageSource: LogicLoop,
-      gitHubLink: [
-        true,
-        "https://github.com/SureshJat-0/MERN/tree/main/LogicLoop",
-      ],
-      liveLink: [false, ""],
-    },
-    {
-      title: "Amazon Clone",
-      description:
-        "A frontend-only project built using HTML, CSS, and JavaScript when I began learning web development. It replicates core Amazon UI features like product listings, navbar, and a basic cart.",
-      techStack: ["HTML", "CSS", "JavaScript"],
-      imageSource: Amazon,
-      gitHubLink: [
-        true,
-        "https://github.com/SureshJat-0/Front-End/tree/main/AmazonC",
-      ],
-      liveLink: [false, ""],
-    },
   ];
 
   return (
