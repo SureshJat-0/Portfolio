@@ -53,6 +53,7 @@ export default function Project({
             <a
               href={liveLink[1]}
               target="_blank"
+              aria-label={`Live deployement link for ${title}`}
               rel="noopener noreferrer"
               className="text-sm lg:text-base cursor-pointer px-6 py-1 rounded bg-[var(--text-green)] flex justify-center items-center hover:bg-[var(--btn-bg)]"
             >
@@ -64,6 +65,7 @@ export default function Project({
             <a
               href={gitHubLink[1]}
               target="_blank"
+              aria-label={`Github link for ${title}`}
               rel="noopener noreferrer"
               className="cursor-pointer px-6 py-1 rounded bg-[var(--text-green)] flex justify-center items-center hover:bg-[var(--btn-bg)]"
             >

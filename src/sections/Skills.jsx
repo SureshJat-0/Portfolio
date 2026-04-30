@@ -115,9 +115,9 @@ export default function Skills({ skillsRef }) {
                   <card.headerIcon />
                 </span>
                 <div>
-                  <h3 className="text-[1.35rem] font-[650] text-[var(--text)] xl:text-[1.65rem]">
+                  <h2 className="text-[1.35rem] font-[650] text-[var(--text)] xl:text-[1.65rem]">
                     {card.title}
-                  </h3>
+                  </h2>
                   <p className="mt-[0.35rem] max-w-[32ch] text-[0.92rem] leading-[1.5] text-[var(--text-muted)] md:text-[0.97rem]">
                     {card.subtitle}
                   </p>
@@ -203,10 +203,7 @@ export default function Skills({ skillsRef }) {
                 {renderIcon(item.icon, 20)}
                 <span>{item.name}</span>
               </span>
-              <span
-                className="inline-flex gap-[0.28rem]"
-                aria-label={`${item.name} level ${item.level} of 5`}
-              >
+              <span className="inline-flex gap-[0.28rem]">
                 {[1, 2, 3, 4, 5].map((dot) => (
                   <span
                     key={dot}

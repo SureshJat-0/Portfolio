@@ -28,6 +28,7 @@ export default function LandingPage({
   //   [109, 36, 1.6],
   // ];
   const [show3D, setShow3D] = useState(false);
+  const [showLottie, setShowLottie] = useState(false);
   const robotBadges = [
     {
       label: "DSA",
@@ -54,7 +55,10 @@ export default function LandingPage({
   const [showTypewriter, setShowTypewriter] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowTypewriter(true), 2000);
+    const timer = setTimeout(() => {
+      setShowTypewriter(true); // delay in typing animation
+      setShowLottie(true); // delay in lottie video animation
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -67,7 +71,7 @@ export default function LandingPage({
       if (isTrue) {
         const roboTimer = setTimeout(() => {
           setShow3D(isTrue);
-        }, 3000);
+        }, 2000);
       }
     };
 
@@ -119,7 +123,15 @@ export default function LandingPage({
               />
             }
           >
-            <LandingVideoAnimation />
+            {showLottie ? (
+              <LandingVideoAnimation />
+            ) : (
+              <img
+                src={LottieImage}
+                alt="preview"
+                style={{ width: "200px", height: "200px", objectFit: "cover" }}
+              />
+            )}
           </Suspense>
         </div>
         <div className="px-1 lg:pe-8 md:mb-10 lg:mb-16 mb-10">

@@ -90,6 +90,7 @@ export default function Contact({
                 <p className="text-sm text-[var(--text-muted)]">Email</p>
                 <a
                   href="mailto:sureshjatcode@gmail.com"
+                  aria-label="Gmail link"
                   className="text-[var(--text)] hover:text-[var(--text-green)] transition-colors"
                 >
                   sureshjatcode@gmail.com
@@ -131,6 +132,7 @@ export default function Contact({
             <a
               href="https://github.com/SureshJat-0"
               target="_blank"
+              aria-label="GitHub profile"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 hover:bg-[var(--text-green)]/50 flex items-center justify-center text-2xl text-[var(--text-green)] hover:text-white transition-all duration-200"
             >
@@ -139,6 +141,7 @@ export default function Contact({
             <a
               href="https://www.linkedin.com/in/suresh-jat-340b46322/"
               target="_blank"
+              aria-label="LinkedIn profile"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 hover:bg-[var(--text-green)]/50 flex items-center justify-center text-2xl text-[var(--text-green)] hover:text-white transition-all duration-200"
             >
@@ -147,6 +150,7 @@ export default function Contact({
             <a
               href="https://x.com/SureshJat012"
               target="_blank"
+              aria-label="X profile"
               rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 hover:bg-[var(--text-green)]/50 flex items-center justify-center text-2xl text-[var(--text-green)] hover:text-white transition-all duration-200"
             >
@@ -154,6 +158,7 @@ export default function Contact({
             </a>
             <a
               href="mailto:sureshjatcode@gmail.com"
+              aria-label="Gmail"
               className="w-12 h-12 rounded-full bg-[var(--text-green)]/10 hover:bg-[var(--text-green)]/50 flex items-center justify-center text-2xl text-[var(--text-green)] hover:text-white transition-all duration-200"
             >
               <MdEmail />
