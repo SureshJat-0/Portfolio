@@ -17,10 +17,10 @@ export default function NavbarSmallScreen({
   ];
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
+      // initial={{ opacity: 0 }}
+      // animate={{ opacity: 1 }}
+      // exit={{ opacity: 0 }}
+      // transition={{ duration: 0.2 }}
       className="fixed inset-0 z-[25] bg-black/35 px-4 pt-[4.8rem] backdrop-blur-[1px] md:hidden"
       onClick={() => setShowSmallScreenNav(false)}
     >

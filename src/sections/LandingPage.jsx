@@ -18,15 +18,15 @@ export default function LandingPage({
   setShowContactModal,
 }) {
   // Rectangles of background : top, right and delay of animation
-  const rectsInfo = [
-    [55, 0, 1.3],
-    [55, 36, 1.1],
-    [73, 18, 1.2],
-    [91, 0, 1],
-    [73, 54, 1.5],
-    [91, 54, 1.4],
-    [109, 36, 1.6],
-  ];
+  // const rectsInfo = [
+  //   [55, 0, 1.3],
+  //   [55, 36, 1.1],
+  //   [73, 18, 1.2],
+  //   [91, 0, 1],
+  //   [73, 54, 1.5],
+  //   [91, 54, 1.4],
+  //   [109, 36, 1.6],
+  // ];
   const [show3D, setShow3D] = useState(false);
   const robotBadges = [
     {
@@ -51,17 +51,30 @@ export default function LandingPage({
     },
   ];
 
+  const [showTypewriter, setShowTypewriter] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowTypewriter(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     const check3DSupport = () => {
       const isTouchDevice =
         "ontouchstart" in window || navigator.maxTouchPoints > 0;
       const isDesktopViewport = window.innerWidth >= 1024;
-      setShow3D(!isTouchDevice && isDesktopViewport);
+      const isTrue = !isTouchDevice && isDesktopViewport;
+      if (isTrue) {
+        const roboTimer = setTimeout(() => {
+          setShow3D(isTrue);
+        }, 3000);
+      }
     };
 
     check3DSupport();
     window.addEventListener("resize", check3DSupport);
     return () => window.removeEventListener("resize", check3DSupport);
+    return () => clearTimeout(roboTimer);
   }, []);
 
   return (
@@ -83,13 +96,17 @@ export default function LandingPage({
             Hi, I'm Suresh Jat
           </motion.h1>
           <span className="text-[var(--text-green)]">
-            <Typewriter
-              options={{
-                strings: ["MERN Stack Developer", "DSA Enthusiast"],
-                autoStart: true,
-                loop: true,
-              }}
-            />
+            {showTypewriter ? (
+              <Typewriter
+                options={{
+                  strings: ["MERN Stack Developer", "DSA Enthusiast"],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            ) : (
+              <p>MERN Stack Developer</p>
+            )}
           </span>
         </div>
         <div className="block lg:hidden mt-2">
@@ -168,14 +185,14 @@ export default function LandingPage({
         {robotBadges.map((badge, index) => (
           <motion.div
             key={badge.label}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: [0, -6, 0] }}
-            transition={{
-              duration: 3,
-              delay: index * 0.15,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
+            // initial={{ opacity: 0, y: 18 }}
+            // animate={{ opacity: 1, y: [0, -6, 0] }}
+            // transition={{
+            //   duration: 3,
+            //   delay: index * 0.15,
+            //   repeat: Infinity,
+            //   repeatType: "reverse",
+            // }}
             className={`absolute z-[7] flex items-center gap-[0.6rem] rounded-[0.8rem] border border-[hsl(127_32%_64%_/_0.3)] bg-[hsl(200_24%_8%_/_0.72)] px-[0.85rem] py-[0.7rem] text-[0.9rem] font-medium tracking-[0.02em] text-[var(--text-green-light)] backdrop-blur-[6px] 2xl:px-4 2xl:py-[0.85rem] 2xl:text-[1rem] ${badge.position}`}
           >
             <span className="text-[0.9rem] font-bold text-[var(--text-green)]">
@@ -203,24 +220,31 @@ export default function LandingPage({
               </div>
             </Suspense>
           ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="max-w-[340px] rounded-[0.8rem] border border-[hsl(127_28%_66%_/_0.25)] bg-[hsl(200_24%_8%_/_0.8)] px-[1.1rem] py-4 text-[var(--text-muted)]"
-            >
-              <span className="flex items-center gap-2">
-                <FaCircleInfo />
-                <p>3D robot view is available on non-touch desktop screens.</p>
-              </span>
-            </motion.div>
+            <div className="flex h-full w-full items-center justify-center">
+              <img
+                src={Robo3d}
+                alt="3D robot preview"
+                className="h-[92%] w-[92%] object-contain [filter:drop-shadow(0_15px_24px_hsl(0_0%_0%_/_0.3))]"
+              />
+            </div>
+            // <motion.div
+            //   initial={{ opacity: 0, y: 15 }}
+            //   animate={{ opacity: 1, y: 0 }}
+            //   transition={{ duration: 0.4 }}
+            //   className="max-w-[340px] rounded-[0.8rem] border border-[hsl(127_28%_66%_/_0.25)] bg-[hsl(200_24%_8%_/_0.8)] px-[1.1rem] py-4 text-[var(--text-muted)]"
+            // >
+            //   <span className="flex items-center gap-2">
+            //     <FaCircleInfo />
+            //     <p>3D robot view is available on non-touch desktop screens.</p>
+            //   </span>
+            // </motion.div>
           )}
         </div>
       </div>
       {/* ractangles for background  */}
-      {rectsInfo.map((rect, ind) => (
+      {/* {rectsInfo.map((rect, ind) => (
         <RectBg top={rect[0]} right={rect[1]} delay={rect[2]} key={ind} />
-      ))}
+      ))} */}
     </div>
   );
 }

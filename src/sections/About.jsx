@@ -116,10 +116,10 @@ export default function ({ setShowContactModal, aboutRef }) {
               <h3 className="mb-[0.55rem] text-[1.15rem] text-[var(--text)] md:text-[1.35rem]">
                 Open to Internship Opportunities
               </h3>
-              <p className="text-[1rem] leading-[1.7] text-[hsl(140_43%_76%_/_0.95)]">
-                Actively looking for roles where I can contribute to real-world
-                products, collaborate with experienced teams, and grow as a
-                developer.
+              <p className="text-[1rem] leading-[1.7] text-[var(--text-green-light)]">
+                I'm looking for a Full Stack / Backend internship where I can
+                build real-time applications, scalable APIs, and contribute to
+                production-level systems.
               </p>
             </div>
             <div className="mt-4 flex flex-wrap items-start gap-y-[0.9rem] gap-x-4 md:items-center">
