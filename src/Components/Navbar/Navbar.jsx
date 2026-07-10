@@ -1,5 +1,6 @@
 import favicon from "/favicon.ico";
 import NavbarItems from "./NavbarItems";
+import { useEffect, useRef, useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { motion } from "motion/react";
@@ -13,6 +14,8 @@ export default function Navbar({
   setActiveItem,
 }) {
   const { homeRef, projectsRef, skillsRef, aboutRef, contactRef } = refs;
+  const lastScrollYRef = useRef(0);
+  const [isVisible, setIsVisible] = useState(true);
   const navItems = [
     ["Home", homeRef],
     ["Projects", projectsRef],
@@ -27,11 +30,33 @@ export default function Navbar({
     homeRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isScrollingDown = currentScrollY > lastScrollYRef.current;
+
+      if (currentScrollY < 12) {
+        setIsVisible(true);
+      } else if (isScrollingDown && !showSmallScreenNav) {
+        setIsVisible(false);
+      } else if (!isScrollingDown) {
+        setIsVisible(true);
+      }
+
+      lastScrollYRef.current = currentScrollY;
+    };
+
+    lastScrollYRef.current = window.scrollY;
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showSmallScreenNav]);
+
   return (
     <motion.header
       initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.35 }}
+      animate={{ y: isVisible ? 0 : -100, opacity: 1 }}
+      transition={{ duration: 0.28, ease: "easeOut" }}
       className="fixed inset-x-0 top-0 z-[30]"
     >
       <div className="flex w-full items-center justify-between bg-[var(--bg)] px-3 py-2 backdrop-blur-lg md:px-4 md:py-2.5">
