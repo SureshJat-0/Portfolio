@@ -9,6 +9,7 @@ import AiCodeReviewer from "../assets/AiCodeReviewer.webp";
 export default function Projects({ projectsRef }) {
   const projects = [
     {
+      id: 1,
       title: "AI Code Reviewer (Full Stack - MERN)",
       description:
         "A smart tool that reviews code using AI, detects issues, and suggests improvements to enhance code quality and developer efficiency.",
@@ -18,6 +19,7 @@ export default function Projects({ projectsRef }) {
       liveLink: [true, "https://ai-code-reviewer-studio.vercel.app"],
     },
     {
+      id: 2,
       title: "Chat App (Full Stack - MERN)",
       description:
         "A full-stack real-time chat app with authentication and WebSockets.",
@@ -30,6 +32,7 @@ export default function Projects({ projectsRef }) {
       liveLink: [true, "http://suresh-chat-client.onrender.com/"],
     },
     {
+      id: 3,
       title: "Place Port (EJS, Backend, Database)",
       description:
         "Airbnb-inspired web app for discovering, listing, and booking unique places to stay, complete with user authentication, image uploads, and database-driven listings.",
@@ -39,6 +42,7 @@ export default function Projects({ projectsRef }) {
       liveLink: [false, ""],
     },
     {
+      id: 4,
       title: "Twitter Clone (Full Stack - MERN)",
       description:
         "A full-stack Twitter clone that lets users sign up, post tweets — featuring real-time updates and a MongoDB-powered backend.",
@@ -68,15 +72,16 @@ export default function Projects({ projectsRef }) {
       </div>
       {/* projects  */}
       <div className="w-full grid md:grid-cols-2 sm:grid-cols-1">
-        {projects.map((project, ind) => (
+        {projects.map((project) => (
           <Project
+            id={project.id}
             title={project.title}
             descreption={project.description}
             techStack={project.techStack}
             imageSource={project.imageSource}
             gitHubLink={project.gitHubLink}
             liveLink={project.liveLink}
-            key={ind}
+            key={project.id}
           />
         ))}
       </div>
