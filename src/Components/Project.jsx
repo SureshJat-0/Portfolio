@@ -1,5 +1,7 @@
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { motion } from "motion/react";
+import PrimaryLink from "./buttons/PrimaryLink";
+import SecondaryLink from "./buttons/SecondaryLink";
 
 export default function Project({
   id,
@@ -49,7 +51,7 @@ export default function Project({
         <ul className="flex list-none flex-wrap">
           {techStack.map((tech, ind) => (
             <li
-              className="text-sm lg:text-base px-4 py-1 rounded border border-[var(--text-muted)] bg-[var(--bg)] text-[var(--text-muted)] me-2 mb-2 hover:bg-[var(--text-green-light)] hover:border-transparent hover:text-black"
+              className="text-sm lg:text-base px-4 py-1 rounded-[0.6rem] border border-[var(--rect)] bg-[var(--bg-light)] text-[var(--text-muted)] me-2 mb-2 hover:border-[var(--rect-hover)]"
               key={ind}
             >
               {tech}
@@ -58,28 +60,20 @@ export default function Project({
         </ul>
         <div className="sm:my-4 my-2 flex gap-4 flex-wrap">
           {liveLink[0] && (
-            <a
-              href={liveLink[1]}
-              target="_blank"
-              aria-label={`Live deployement link for ${title}`}
-              rel="noopener noreferrer"
-              className="text-sm lg:text-base cursor-pointer px-6 py-1 rounded bg-[var(--text-green)] flex justify-center items-center hover:bg-[var(--btn-bg)]"
-            >
-              <span className="mx-2">Live</span>
-              <ArrowOutwardIcon sx={{ fontSize: 18 }} />
-            </a>
+            <PrimaryLink
+              Title={"Live"}
+              hrefTarget={liveLink[1]}
+              ariaLabel={`Live deployement link for ${title}`}
+              BackIcon={<ArrowOutwardIcon sx={{ fontSize: 18 }} />}
+            />
           )}
           {gitHubLink[0] && (
-            <a
-              href={gitHubLink[1]}
-              target="_blank"
-              aria-label={`Github link for ${title}`}
-              rel="noopener noreferrer"
-              className="cursor-pointer px-6 py-1 rounded bg-[var(--text-green)] flex justify-center items-center hover:bg-[var(--btn-bg)]"
-            >
-              <span className="mx-2">Code</span>
-              <ArrowOutwardIcon sx={{ fontSize: 18 }} />
-            </a>
+            <SecondaryLink
+              Title={"Code"}
+              hrefTarget={gitHubLink[1]}
+              ariaLabel={`Github link for ${title}`}
+              BackIcon={<ArrowOutwardIcon sx={{ fontSize: 18 }} />}
+            />
           )}
         </div>
       </div>

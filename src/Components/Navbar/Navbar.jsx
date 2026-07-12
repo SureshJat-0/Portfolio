@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { motion } from "motion/react";
+import PrimaryBtn from "../buttons/primaryBtn";
+import SecondaryBtn from "../buttons/SecondaryBtn";
 
 export default function Navbar({
   setShowContactModal,
@@ -69,7 +71,7 @@ export default function Navbar({
         </button>
 
         <nav className="hidden md:block">
-          <ul className="flex list-none items-center gap-5">
+          <ul className="flex list-none items-center gap-6">
             {navItems.map((item, ind) => (
               <NavbarItems
                 name={item[0]}
@@ -83,16 +85,13 @@ export default function Navbar({
         </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => {
+          <PrimaryBtn
+            Title={"Let's Talk"}
+            ClickFun={() => {
               setShowSmallScreenNav(false);
               setShowContactModal(true);
             }}
-            className="cursor-pointer rounded-lg border border-[var(--text-green)]/30 bg-[hsl(127_22%_18%_/_0.52)] px-3 py-1.5 text-sm font-semibold text-[var(--text-green-light)] transition-all duration-200 hover:border-[var(--text-green)]/55 hover:bg-[hsl(127_24%_22%_/_0.62)] md:px-4"
-          >
-            Let&apos;s Talk
-          </button>
-
+          />
           <button
             onClick={() => {
               setShowSmallScreenNav((prev) => !prev);

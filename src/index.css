@@ -17,7 +17,8 @@
   --text: hsl(0, 0%, 90%);
   --text-muted: hsl(0, 0%, 80%);
   --btn-bg: hsl(126.21, 52.73%, 78.43%);
-  --rect: hsl(200, 20%, 13%);
+  --rect: hsl(200, 20%, 18%);
+  --rect-hover: hsl(200, 20%, 22%);
   --project-bg: hsl(195, 20%, 16%);
   --btn-hover: hsl(127, 18%, 40%);
   --browser-shade: hsl(195, 20%, 13%);

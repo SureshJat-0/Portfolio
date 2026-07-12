@@ -1,11 +1,13 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
+import { IoMdSend } from "react-icons/io";
 import { FaPhone } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { motion } from "motion/react";
 import { toast } from "react-hot-toast";
+import PrimaryBtn from "../Components/buttons/primaryBtn";
 
 export default function Contact({
   contactRef,
@@ -245,10 +247,11 @@ export default function Contact({
           <div className="flex justify-center items-center">
             <button
               disabled={loading}
-              className="w-full py-3 rounded-lg bg-[var(--btn-bg)] bg-gradient-to-br from-[var(--text-green)] from-50% to-[var(--text-green-dark)] border hover:border-[var(--text-green)] hover:shadow-[var(--bg-dark)] text-black/90 font-semibold hover:shadow-[var(--text-green)]/20 transition-all duration-200 cursor-pointer disabled:cursor-not-allowed"
+              className="w-full group flex items-center justify-center gap-2 rounded-[0.6rem] border border-[hsl(127_40%_60%_/_0.2)] bg-[hsl(147_46%_40%_/_0.94)] px-5 py-2 text-black shadow-[0_0_0_1px_hsl(127_48%_60%_/_0.06),0_8px_14px_hsl(127_50%_18%_/_0.1)] transition-transform duration-300 hover:-translate-y-0.5 cursor-pointer"
               type="submit"
             >
               {loading ? <p>Sending...</p> : <p>Send Message</p>}
+              <IoMdSend />
             </button>
           </div>
         </form>

@@ -13,10 +13,10 @@ export default function Projects({ projectsRef }) {
       title: "AI Code Reviewer (Full Stack - MERN)",
       description:
         "A smart tool that reviews code using AI, detects issues, and suggests improvements to enhance code quality and developer efficiency.",
-      techStack: ["React", "Node_js", "Express_js", "MongoDB"],
+      techStack: ["React", "Node_js", "Express_js", "MongoDB", "Docker"],
       imageSource: AiCodeReviewer,
       gitHubLink: [true, "https://github.com/SureshJat-0/AiCodeReviewer"],
-      liveLink: [true, "https://ai-code-reviewer-studio.vercel.app"],
+      liveLink: [true, "https://aicodereview.sureshjat.in"],
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ export default function Projects({ projectsRef }) {
         true,
         "https://github.com/SureshJat-0/MERN/tree/main/ChatApp",
       ],
-      liveLink: [true, "http://suresh-chat-client.onrender.com/"],
+      liveLink: [true, "http://chat.sureshjat.in/"],
     },
     {
       id: 3,

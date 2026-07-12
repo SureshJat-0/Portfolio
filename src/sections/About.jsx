@@ -1,5 +1,6 @@
+import { FaArrowRight, FaEnvelope } from "react-icons/fa";
 import MyPhoto from "../assets/MyPhoto.webp";
-import ContactButton from "../Components/Contact/ContactButton";
+import PrimaryBtn from "../Components/buttons/primaryBtn";
 
 export default function ({ setShowContactModal, aboutRef }) {
   const focusPoints = [
@@ -123,7 +124,11 @@ export default function ({ setShowContactModal, aboutRef }) {
               </p>
             </div>
             <div className="mt-4 flex flex-wrap items-start gap-y-[0.9rem] gap-x-4 md:items-center">
-              <ContactButton setShowContactModal={setShowContactModal} />
+              <PrimaryBtn
+                Title={"Contact Me"}
+                FrontIcon={<FaEnvelope className="text-[0.7rem]" />}
+                ClickFun={() => setShowContactModal(true)}
+              />
               <span className="inline-flex flex-wrap items-center gap-[0.55rem] text-[0.95rem] text-[hsl(145_43%_82%_/_0.95)]">
                 <span className="h-[0.55rem] w-[0.55rem] rounded-full bg-[hsl(147_66%_63%)] shadow-[0_0_10px_hsl(147_66%_63%_/_0.45)]"></span>
                 Available for internship & freelance
