@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import StaticContactBox from "./Components/Contact/StaticContactBox";
 import Navbar from "./Components/Navbar/Navbar";
 import About from "./sections/About";
@@ -6,12 +7,13 @@ import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import LandingPage from "./sections/LandingPage";
 import Projects from "./sections/Projects";
+import ResumePage from "./sections/Resume";
 import ScrollingProjects from "./sections/ScrollingProjects";
 import Skills from "./sections/Skills";
 import NavbarSmallScreen from "./Components/Navbar/NavbarSmallScreen";
 import { Toaster } from "react-hot-toast";
 
-function App() {
+function HomePage() {
   const [showContactModal, setShowContactModal] = useState(false);
   const [showSmallScreenNav, setShowSmallScreenNav] = useState(false);
   const [activeItem, setActiveItem] = useState("Home");
@@ -119,6 +121,15 @@ function App() {
         setShowContactModal={setShowContactModal}
       />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="*" element={<HomePage />} />
+      <Route path="/resume" element={<ResumePage />} />
+    </Routes>
   );
 }
 

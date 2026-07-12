@@ -24,7 +24,6 @@ export default function LandingPage({
   homeRef,
   projectsRef,
   setShowContactModal,
-  setShowResumePage,
 }) {
   const [show3D, setShow3D] = useState(false);
   const [showLottie, setShowLottie] = useState(false);
@@ -225,8 +224,9 @@ export default function LandingPage({
 
                 <div className="flex flex-col gap-2 sm:flex-row lg:items-stretch">
                   <a
-                    href="suresh_jat_resume.pdf"
+                    href="/resume"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex min-w-[10rem] items-center justify-center gap-2 rounded-[0.8rem] border border-[hsl(127_40%_60%_/_0.28)] bg-[hsl(200_23%_8%_/_0.26)] py-2 text-[var(--text-green-light)] transition-colors duration-300 hover:border-[var(--text-green-light)] hover:bg-[hsl(200_23%_8%_/_0.4)]"
                   >
                     <FaEye className="text-[0.8rem]" />
@@ -238,7 +238,7 @@ export default function LandingPage({
                     className="inline-flex min-w-[10rem] items-center justify-center gap-2 rounded-[0.8rem] border border-[hsl(127_40%_60%_/_0.28)] bg-[hsl(200_23%_8%_/_0.26)] px-2 py-2 text-[var(--text-green-light)] transition-colors duration-300 hover:border-[var(--text-green-light)] hover:bg-[hsl(200_23%_8%_/_0.4)]"
                   >
                     <FaDownload className="text-[0.8rem]" />
-                    <span>Download PDF</span>
+                    <span>Download Resume</span>
                   </a>
                 </div>
               </div>
