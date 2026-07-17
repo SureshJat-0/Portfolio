@@ -56,9 +56,9 @@ export default function LandingPage({
   ];
 
   const highlights = [
-    { icon: FaCode, label: "Clean Code" },
-    { icon: FaRocket, label: "Performance Focused" },
-    { icon: FaShieldHalved, label: "Scalable Solutions" },
+    { label: "3+ Production Projects" },
+    { label: "100+ DSA Problems" },
+    { label: "CI/CD Automated Deployments" },
   ];
 
   useEffect(() => {
@@ -119,7 +119,7 @@ export default function LandingPage({
             {showTypewriter ? (
               <Typewriter
                 options={{
-                  strings: ["MERN Stack Developer", "DSA Enthusiast"],
+                  strings: ["Full Stack Developer", "MERN Stack"],
                   autoStart: true,
                   loop: true,
                 }}
@@ -160,12 +160,10 @@ export default function LandingPage({
             className="my-6 max-w-[42rem] text-[0.95rem] leading-[1.85] text-[var(--text-muted)] md:text-[1.05rem]"
           >
             I'm <span className="text-[var(--text-green)]">Suresh Jat</span>, a
-            web developer with a strong{" "}
-            <span className="text-[var(--text-green)]">DSA</span> background. I
-            build responsive{" "}
-            <span className="text-[var(--text-green)]">MERN</span> stack
-            applications and enjoy learning new technologies through hands-on
-            coding and real-world projects.
+            Full Stack Developer specializing in the{" "}
+            <span className="text-[var(--text-green)]">MERN</span> stack —
+            building web applications and shipping them with Docker, GitHub
+            Actions, and automated CI/CD pipelines.
           </motion.p>
 
           <motion.div
@@ -215,14 +213,17 @@ export default function LandingPage({
                   <SecondaryLink
                     Title={"View Resume"}
                     hrefTarget={"/resume"}
-                    FrontIcon={<FaEye className="text-[0.8rem]"
-                    ariaLabel={"ViewResume"}
-                      />}
+                    FrontIcon={
+                      <FaEye
+                        className="text-[0.8rem]"
+                        aria-label={"ViewResume"}
+                      />
+                    }
                   />
                   <a
                     href="/suresh_jat_resume.pdf"
                     download
-                    className="inline-flex min-w-[10rem] items-center justify-center gap-2 rounded-[0.5rem] border border-[hsl(127_40%_60%_/_0.28)] bg-[hsl(200_23%_8%_/_0.26)] px-4 py-2 text-[var(--text-green-light)] transition-colors duration-300 hover:border-[hsl(127_52%_68%_/_0.75)] hover:bg-[hsl(200_23%_8%_/_0.32)]"
+                    className="inline-flex min-w-[10rem] items-center justify-center gap-2 rounded-[0.5rem] border border-[hsl(127_40%_60%_/_0.28)] bg-[hsl(200_23%_8%_/_0.26)] px-4 py-2 text-[var(--text-green-light)] transition-colors duration-300 hover:border-[hsl(127_52%_68%_/_0.75)] hover:bg-[hsl(200_23%_12%_/_0.35)]"
                   >
                     <FaDownload className="text-[0.8rem]" />
                     <span>Download Resume</span>
@@ -231,21 +232,22 @@ export default function LandingPage({
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 pt-1">
+            <div className="flex flex-col sm:flex-row flex-wrap items-start gap-3 pt-1">
               {highlights.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={item.label}
-                    className={`flex items-center gap-3 ${
+                    className={`flex items-center gap-2 ${
                       index !== 0
                         ? "md:border-l md:border-[hsl(127_20%_38%_/_0.45)] md:pl-4"
                         : ""
                     }`}
                   >
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-[0.8rem] border border-[hsl(127_28%_44%_/_0.12)] bg-[hsl(200_23%_8%_/_0.3)] text-[var(--text-green-light)]">
-                      <Icon className="text-[0.75rem]" />
-                    </span>
+                    <span
+                      className="h-2 w-2 shrink-0 rounded-full bg-[var(--text-green)]"
+                      aria-hidden="true"
+                    ></span>
                     <span className="text-[0.78rem] text-[var(--text-muted)] md:text-[0.85rem]">
                       {item.label}
                     </span>

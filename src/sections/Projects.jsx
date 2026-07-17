@@ -6,14 +6,52 @@ import Twitter from "../assets/Twitter.webp";
 import Amazon from "../assets/Amazon.webp";
 import AiCodeReviewer from "../assets/AiCodeReviewer.webp";
 
+import {
+  SiCss3,
+  SiDocker,
+  SiExpress,
+  SiGithub,
+  SiGithubactions,
+  SiGit,
+  SiHtml5,
+  SiJavascript,
+  SiLinux,
+  SiMongodb,
+  SiMysql,
+  SiNginx,
+  SiNodedotjs,
+  SiPostman,
+  SiReact,
+  SiRedis,
+  SiRender,
+  SiTailwindcss,
+  SiVercel,
+  SiJsonwebtokens,
+  SiGooglegemini,
+  SiSocketdotio,
+  SiEjs,
+} from "react-icons/si";
+
 export default function Projects({ projectsRef }) {
   const projects = [
     {
       id: 1,
       title: "AI Code Reviewer (Full Stack - MERN)",
       description:
-        "A smart tool that reviews code using AI, detects issues, and suggests improvements to enhance code quality and developer efficiency.",
-      techStack: ["React", "Node_js", "Express_js", "MongoDB", "Docker"],
+        "AI-powered code review platform that helps developers identify bugs, security issues, and best-practice improvements. Built with JWT authentication, Docker, and a production-ready CI/CD pipeline.",
+      techStack: [
+        ["React", SiReact],
+        ["Node.js", SiNodedotjs],
+        ["Express.js", SiExpress],
+        ["MongoDB", SiMongodb],
+        ["JWT", SiJsonwebtokens],
+        ["Gemini API", SiGooglegemini],
+        ["Docker", SiDocker],
+        ["GitHub Actions", SiGithubactions],
+        ["CI/CD", SiGithubactions],
+        ["Render", SiRender],
+        ["Vercel", SiVercel],
+      ],
       imageSource: AiCodeReviewer,
       gitHubLink: [true, "https://github.com/SureshJat-0/AiCodeReviewer"],
       liveLink: [true, "https://aicodereview.sureshjat.in"],
@@ -23,7 +61,13 @@ export default function Projects({ projectsRef }) {
       title: "Chat App (Full Stack - MERN)",
       description:
         "A full-stack real-time chat app with authentication and WebSockets.",
-      techStack: ["Socket_IO", "React", "Node_js", "Express_js", "MongoDB"],
+      techStack: [
+        ["Socket.IO", SiSocketdotio],
+        ["React", SiReact],
+        ["Node.js", SiNodedotjs],
+        ["Express.js", SiExpress],
+        ["MongoDB", SiMongodb],
+      ],
       imageSource: ChatApp,
       gitHubLink: [
         true,
@@ -36,7 +80,12 @@ export default function Projects({ projectsRef }) {
       title: "Place Port (EJS, Backend, Database)",
       description:
         "Airbnb-inspired web app for discovering, listing, and booking unique places to stay, complete with user authentication, image uploads, and database-driven listings.",
-      techStack: ["Node_js", "Express_js", "MongoDB", "EJS"],
+      techStack: [
+        ["Node.js", SiNodedotjs],
+        ["Express.js", SiExpress],
+        ["MongoDB", SiMongodb],
+        ["EJS", SiEjs],
+      ],
       imageSource: PlacePort,
       gitHubLink: [true, "https://github.com/SureshJat-0/MajorProjects"],
       liveLink: [false, ""],
@@ -46,7 +95,12 @@ export default function Projects({ projectsRef }) {
       title: "Twitter Clone (Full Stack - MERN)",
       description:
         "A full-stack Twitter clone that lets users sign up, post tweets — featuring real-time updates and a MongoDB-powered backend.",
-      techStack: ["React", "Node_js", "Express_js", "MongoDB"],
+      techStack: [
+        ["React", SiReact],
+        ["Node.js", SiNodedotjs],
+        ["Express.js", SiExpress],
+        ["MongoDB", SiMongodb],
+      ],
       imageSource: Twitter,
       gitHubLink: [
         true,

@@ -3,7 +3,7 @@ export default function SecondaryBtn({ Title, FrontIcon, BackIcon, ClickFun }) {
     <button
       type="button"
       onClick={ClickFun}
-      className={`group flex w-full items-center ${BackIcon ? "justify-between" : "justify-center"} gap-4 rounded-[0.85rem] border border-[hsl(127_40%_60%_/_0.38)] bg-[hsl(200_23%_8%_/_0.2)] px-5 py-2 text-left text-[var(--text-green-light)] transition-colors duration-300 hover:border-[hsl(127_52%_68%_/_0.75)] hover:bg-[hsl(200_23%_8%_/_0.32)] cursor-pointer`}
+      className={`group flex w-full items-center ${BackIcon ? "justify-between" : "justify-center"} gap-4 rounded-[0.85rem] border border-[hsl(127_40%_60%_/_0.38)] bg-[hsl(200_23%_8%_/_0.2)] px-5 py-2 text-left text-[var(--text-green-light)] transition-colors duration-300 hover:border-[hsl(127_52%_68%_/_0.75)] hover:bg-[hsl(200_23%_12%_/_0.35)] cursor-pointer`}
     >
       <span className="flex items-center gap-4">
         {FrontIcon && (

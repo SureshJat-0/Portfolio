@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
 import { FaDownload, FaExpand, FaHouse } from "react-icons/fa6";
+import PrimaryLink from "../Components/buttons/PrimaryLink";
+import SecondaryLink from "../Components/buttons/SecondaryLink";
 
 const resumePdfUrl = "/suresh_jat_resume.pdf";
 
@@ -27,26 +29,22 @@ export default function ResumePage() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <a
-              href="/"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--text-green)]/20 bg-[hsl(200_23%_8%_/_0.4)] px-4 py-2.5 text-sm font-medium text-[var(--text-green-light)] transition-colors duration-200 hover:border-[var(--text-green)]/45 hover:bg-[hsl(200_23%_8%_/_0.55)]"
-            >
-              <FaHouse className="text-[0.8rem]" />
-              <span>Back to Portfolio</span>
-            </a>
-            <a
-              href={resumePdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--text-green)]/20 bg-[hsl(200_23%_8%_/_0.4)] px-4 py-2.5 text-sm font-medium text-[var(--text-green-light)] transition-colors duration-200 hover:border-[var(--text-green)]/45 hover:bg-[hsl(200_23%_8%_/_0.55)]"
-            >
-              <FaExpand className="text-[0.8rem]" />
-              <span>View Fullscreen</span>
-            </a>
+            <SecondaryLink
+              Title={"Back to Portfolio"}
+              hrefTarget={"/"}
+              ariaLabel={"Back to portfolio link"}
+              FrontIcon={<FaHouse className="text-[0.8rem]" />}
+            />
+            <SecondaryLink
+              Title={"View Fullscreen"}
+              hrefTarget={resumePdfUrl}
+              ariaLabel={"View fullscreen"}
+              FrontIcon={<FaExpand className="text-[0.8rem]" />}
+            />
             <a
               href={resumePdfUrl}
               download
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--text-green)] px-4 py-2.5 text-sm font-semibold text-[var(--bg-dark)] transition-colors duration-200 hover:bg-[var(--text-green-light)]"
+              className="group flex items-center justify-between gap-4 rounded-[0.6rem] border border-[hsl(127_40%_60%_/_0.2)] bg-[hsl(147_46%_40%_/_0.94)] hover:bg-[hsl(147_46%_42%)] px-5 py-2 text-left text-black shadow-[0_0_0_1px_hsl(127_48%_60%_/_0.06),0_8px_14px_hsl(127_50%_18%_/_0.1)] hover:shadow-[0_0_0_1px_hsl(127_48%_60%_/_0.1),0_8px_14px_hsl(127_50%_18%_/_0.2)] transition-transform duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <FaDownload className="text-[0.8rem]" />
               <span>Download Resume</span>

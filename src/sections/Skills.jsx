@@ -114,24 +114,26 @@ export default function Skills({ skillsRef }) {
         "My approach to building scalable, maintainable and performant applications.",
       headerIcon: FaRocket,
       points: [
-        "Clean, maintainable and modular code structure",
-        "Component-based architecture (React best practices)",
-        "REST API design with proper error handling",
-        "Authentication and secure session management",
-        "Performance optimization (lazy loading, caching)",
-        "Real-time features using WebSockets (Socket.IO)",
+        "Production-ready applications",
+        "Scalable REST API architecture",
+        "Authentication & Authorization",
+        "CI/CD & Automated Deployment",
+        "Dockerized Development",
+        "Performance Optimization",
+        "Real-time Communication (Socket.IO)",
+        "Responsive UI Development",
       ],
     },
   ];
 
-  const proficiencyItems = [
-    { name: "React", icon: SiReact, level: 4 },
-    { name: "Node.js", icon: SiNodedotjs, level: 4 },
-    { name: "MongoDB", icon: SiMongodb, level: 4 },
-    { name: "Express.js", icon: SiExpress, level: 4 },
-    { name: "Tailwind CSS", icon: SiTailwindcss, level: 3 },
-    { name: "JavaScript", icon: SiJavascript, level: 4 },
-  ];
+  // const proficiencyItems = [
+  //   { name: "React", icon: SiReact, level: 4 },
+  //   { name: "Node.js", icon: SiNodedotjs, level: 4 },
+  //   { name: "MongoDB", icon: SiMongodb, level: 4 },
+  //   { name: "Express.js", icon: SiExpress, level: 4 },
+  //   { name: "Tailwind CSS", icon: SiTailwindcss, level: 3 },
+  //   { name: "JavaScript", icon: SiJavascript, level: 4 },
+  // ];
 
   const renderIcon = (IconComponent, size = 38) => {
     if (!IconComponent) return null;
@@ -223,7 +225,7 @@ export default function Skills({ skillsRef }) {
         ))}
       </div>
 
-      <motion.article
+      {/* <motion.article
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
@@ -270,7 +272,7 @@ export default function Skills({ skillsRef }) {
             </li>
           ))}
         </ul>
-      </motion.article>
+      </motion.article> */}
     </div>
   );
 }

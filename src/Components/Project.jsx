@@ -3,6 +3,11 @@ import { motion } from "motion/react";
 import PrimaryLink from "./buttons/PrimaryLink";
 import SecondaryLink from "./buttons/SecondaryLink";
 
+const renderIcon = (IconComponent, size = 16) => {
+  if (!IconComponent) return null;
+  return <IconComponent size={size} className="text-[hsl(197_90%_68%)]" />;
+};
+
 export default function Project({
   id,
   title,
@@ -45,16 +50,19 @@ export default function Project({
         <h1 className="lg:text-2xl md:text-xl text-xl text-[var(--text-green)] font-bold md:pt-12 sm:pt-4 pt-2">
           {title}{" "}
         </h1>
-        <p className="text-[var(--text-muted)] my-2 md:text-base text-sm">
+        <p className="text-[var(--text-muted)] my-3 md:text-base text-sm">
           {descreption}
         </p>
         <ul className="flex list-none flex-wrap">
           {techStack.map((tech, ind) => (
             <li
-              className="text-sm lg:text-base px-4 py-1 rounded-[0.6rem] border border-[var(--rect)] bg-[var(--bg-light)] text-[var(--text-muted)] me-2 mb-2 hover:border-[var(--rect-hover)]"
+              className="text-[0.5rem] lg:text-base px-2 md:px-4 py-1 rounded-[0.6rem] border border-[var(--rect)] bg-[var(--bg-light)] text-[var(--text-muted)] me-2 mb-2 hover:border-[var(--rect-hover)]"
               key={ind}
             >
-              {tech}
+              <div className="flex justify-center items-center gap-1">
+                <span className="text-[0.08rem] ">{renderIcon(tech[1])}</span>
+                <span className="text-[0.8rem] ">{tech[0]}</span>
+              </div>
             </li>
           ))}
         </ul>
@@ -63,7 +71,7 @@ export default function Project({
             <PrimaryLink
               Title={"Live"}
               hrefTarget={liveLink[1]}
-              ariaLabel={`Live deployement link for ${title}`}
+              aria-label={`Live deployement link for ${title}`}
               BackIcon={<ArrowOutwardIcon sx={{ fontSize: 18 }} />}
             />
           )}
@@ -71,7 +79,7 @@ export default function Project({
             <SecondaryLink
               Title={"Code"}
               hrefTarget={gitHubLink[1]}
-              ariaLabel={`Github link for ${title}`}
+              aria-label={`Github link for ${title}`}
               BackIcon={<ArrowOutwardIcon sx={{ fontSize: 18 }} />}
             />
           )}

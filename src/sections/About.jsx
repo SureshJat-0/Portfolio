@@ -2,6 +2,19 @@ import { FaArrowRight, FaEnvelope } from "react-icons/fa";
 import MyPhoto from "../assets/MyPhoto.webp";
 import PrimaryBtn from "../Components/buttons/primaryBtn";
 
+const renderBox = (title = "", subTitle = "") => {
+  return (
+    <div className="flex min-h-[4rem] flex-col justify-center rounded-2xl border border-[hsl(127_24%_38%_/_0.18)] bg-[linear-gradient(160deg,hsl(201_22%_14%),hsl(201_18%_10%))] px-4 py-[0.95rem] shadow-[0_10px_24px_hsl(0_0%_0%_/_0.18)]">
+      <h3 className="text-[1.2rem] leading-none font-bold text-[var(--text-green)]">
+        {title}
+      </h3>
+      <p className="mt-[0.35rem] text-[0.8rem] text-[hsl(220_18%_55%)]">
+        {subTitle}
+      </p>
+    </div>
+  );
+};
+
 export default function ({ setShowContactModal, aboutRef }) {
   const focusPoints = [
     "Real-time features (WebSockets)",
@@ -38,38 +51,10 @@ export default function ({ setShowContactModal, aboutRef }) {
             />
           </div>
           <div className="mx-auto mt-3 grid w-full max-w-[260px] grid-cols-2 gap-3">
-            <div className="flex min-h-[4.75rem] flex-col justify-center rounded-2xl border border-[hsl(127_24%_38%_/_0.18)] bg-[linear-gradient(160deg,hsl(201_22%_14%),hsl(201_18%_10%))] px-4 py-[0.95rem] shadow-[0_10px_24px_hsl(0_0%_0%_/_0.18)]">
-              <h3 className="text-[1.5rem] leading-none font-bold text-[var(--text-green)]">
-                MERN
-              </h3>
-              <p className="mt-[0.35rem] text-[0.95rem] text-[hsl(220_18%_55%)]">
-                Core Stack
-              </p>
-            </div>
-            <div className="flex min-h-[4.75rem] flex-col justify-center rounded-2xl border border-[hsl(127_24%_38%_/_0.18)] bg-[linear-gradient(160deg,hsl(201_22%_14%),hsl(201_18%_10%))] px-4 py-[0.95rem] shadow-[0_10px_24px_hsl(0_0%_0%_/_0.18)]">
-              <h3 className="text-[1.5rem] leading-none font-bold text-[var(--text-green)]">
-                5+
-              </h3>
-              <p className="mt-[0.35rem] text-[0.95rem] text-[hsl(220_18%_55%)]">
-                Projects Built
-              </p>
-            </div>
-            <div className="flex min-h-[4.75rem] flex-col justify-center rounded-2xl border border-[hsl(127_24%_38%_/_0.18)] bg-[linear-gradient(160deg,hsl(201_22%_14%),hsl(201_18%_10%))] px-4 py-[0.95rem] shadow-[0_10px_24px_hsl(0_0%_0%_/_0.18)]">
-              <h3 className="text-[1.5rem] leading-none font-bold text-[var(--text-green)]">
-                DSA
-              </h3>
-              <p className="mt-[0.35rem] text-[0.95rem] text-[hsl(220_18%_55%)]">
-                Problem Solving
-              </p>
-            </div>
-            <div className="flex min-h-[4.75rem] flex-col justify-center rounded-2xl border border-[hsl(127_24%_38%_/_0.18)] bg-[linear-gradient(160deg,hsl(201_22%_14%),hsl(201_18%_10%))] px-4 py-[0.95rem] shadow-[0_10px_24px_hsl(0_0%_0%_/_0.18)]">
-              <h3 className="text-[1.5rem] leading-none font-bold text-[var(--text-green)]">
-                Open
-              </h3>
-              <p className="mt-[0.35rem] text-[0.95rem] text-[hsl(220_18%_55%)]">
-                To Internship
-              </p>
-            </div>
+            {renderBox("MERN", "Core Stack")}
+            {renderBox("5+", "Projects Built")}
+            {renderBox("DSA", "Problem Solving")}
+            {renderBox("Open", "To Internship")}
           </div>
         </div>
 
@@ -78,18 +63,18 @@ export default function ({ setShowContactModal, aboutRef }) {
             <p className="mb-3 text-[0.95rem] font-bold tracking-[0.08em] text-[var(--text-green)]">
               WHO I AM
             </p>
-            <p className="text-[1rem] leading-[1.7] text-[var(--text-muted)] md:text-[1.05rem] md:leading-[1.75] [&_strong]:text-[var(--text)]">
+            <p className="text-[0.9rem] leading-[1.7] text-[var(--text-muted)] md:text-[1rem] md:leading-[1.75] [&_strong]:text-[var(--text)]">
               I'm a <strong>Full Stack Developer</strong> and computer science
               and engineering student from India, focused on building{" "}
               <strong>scalable and real-time</strong> web applications using the
               MERN stack.
             </p>
-            <p className="mt-4 text-[1rem] leading-[1.7] text-[var(--text-muted)] md:text-[1.05rem] md:leading-[1.75] [&_strong]:text-[var(--text)]">
+            <p className="mt-4 text-[0.9rem] leading-[1.7] text-[var(--text-muted)] md:text-[1rem] md:leading-[1.75] [&_strong]:text-[var(--text)]">
               I build interactive systems—from real-time chat applications to
               collaborative tools and Ai code reviewer—with a strong focus on
               performance, clean architecture and user experience.{" "}
             </p>
-            <p className="mt-4 text-[1rem] leading-[1.7] text-[var(--text-muted)] md:text-[1.05rem] md:leading-[1.75] [&_strong]:text-[var(--text)]">
+            <p className="mt-4 text-[0.9rem] leading-[1.7] text-[var(--text-muted)] md:text-[1rem] md:leading-[1.75] [&_strong]:text-[var(--text)]">
               Alongside development, I actively strengthen my{" "}
               <strong>problem-solving skills</strong> through DSA and focus on
               writing efficient, maintainable code.
@@ -104,7 +89,7 @@ export default function ({ setShowContactModal, aboutRef }) {
               {focusPoints.map((point) => (
                 <span
                   key={point}
-                  className="rounded-[0.7rem] border border-[hsl(127_22%_38%_/_0.22)] bg-[hsl(201_20%_11%_/_0.85)] px-[0.85rem] py-[0.52rem] text-[0.95rem] text-[var(--text)]"
+                  className="rounded-[0.7rem] border border-[hsl(127_22%_38%_/_0.22)] bg-[hsl(201_20%_11%_/_0.85)] px-[0.85rem] py-[0.52rem] text-[0.8rem] md:text-[0.9rem] text-[var(--text)]"
                 >
                   {point}
                 </span>
@@ -117,7 +102,7 @@ export default function ({ setShowContactModal, aboutRef }) {
               <h3 className="mb-[0.55rem] text-[1.15rem] text-[var(--text)] md:text-[1.35rem]">
                 Open to Internship Opportunities
               </h3>
-              <p className="text-[1rem] leading-[1.7] text-[var(--text-green-light)]">
+              <p className="text-[0.85rem] md:text-[0.95rem] leading-[1.7] text-[var(--text-green-light)]">
                 I'm looking for a Full Stack / Backend internship where I can
                 build real-time applications, scalable APIs, and contribute to
                 production-level systems.
