@@ -15,7 +15,7 @@ import {
 import Robo3d from "../assets/Robo3dImage.webp";
 import LottieImage from "../assets/LottieImage.webp";
 import SecondaryBtn from "../Components/buttons/SecondaryBtn";
-import PrimaryBtn from "../Components/buttons/primaryBtn";
+import PrimaryBtn from "../Components/buttons/PrimaryBtn";
 import SecondaryLink from "../Components/buttons/SecondaryLink";
 
 const Robot_3D = lazy(() => import("../Components/Robot_3D"));

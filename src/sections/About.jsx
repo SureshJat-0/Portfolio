@@ -1,6 +1,6 @@
 import { FaArrowRight, FaEnvelope } from "react-icons/fa";
 import MyPhoto from "../assets/MyPhoto.webp";
-import PrimaryBtn from "../Components/buttons/primaryBtn";
+import PrimaryBtn from "../Components/buttons/PrimaryBtn";
 
 const renderBox = (title = "", subTitle = "") => {
   return (

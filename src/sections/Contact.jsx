@@ -7,7 +7,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { motion } from "motion/react";
 import { toast } from "react-hot-toast";
-import PrimaryBtn from "../Components/buttons/primaryBtn";
+import PrimaryBtn from "../Components/buttons/PrimaryBtn";
 
 export default function Contact({
   contactRef,
