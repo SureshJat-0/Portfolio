@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { motion } from "motion/react";
-import PrimaryBtn from "../buttons/primaryBtn";
+import PrimaryBtn from "../buttons/PrimaryBtn";
 import SecondaryBtn from "../buttons/SecondaryBtn";
 
 export default function Navbar({
